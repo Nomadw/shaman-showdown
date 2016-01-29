@@ -27,6 +27,9 @@ private:
 
 #pragma region Functions
 public:
+	//Overriders for the abstract base GameComponent
+	void update();
+	void render();
 
 private:
 #pragma endregion

@@ -4,7 +4,6 @@
 #include <gl/gl.h>		// need this file to do graphics with opengl
 #include <gl/glu.h>		// need this file to set up a perspective projection easily
 
-
 // include the opengl and glu libraries
 #pragma comment(lib, "opengl32.lib")	
 #pragma comment(lib, "glu32.lib")
