@@ -75,7 +75,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 
 	myPfd.iPixelType = PFD_TYPE_RGBA;					// red, green, blue, alpha for each pixel
 	myPfd.cColorBits = 24;								// 24 bit == 8 bits for red, 8 for green, 8 for blue.
-	
+
 	myPfd.cDepthBits = 32;								// 32 bits to measure pixel depth.
 
 	int chosenPixelFormat = ChoosePixelFormat(myDeviceContext, &myPfd);
@@ -106,9 +106,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 				DispatchMessage(&msg);
 			}
 		}
-		
+
 		draw(myDeviceContext, &renderer);
-		
+
 	}
 	wglMakeCurrent(NULL, NULL);
 
@@ -138,7 +138,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
 {
 
 	switch (message)
-	{
+	{	
 		// if they exited the window...	
 	case WM_DESTROY:
 		// post a message "quit" message to the main windows loop
