@@ -3,13 +3,14 @@
 
 //Custom Includes
 #include "GameComponent.h"
+#include "Vector3.h"
 
 using namespace std;
 class ScaleComponent : GameComponent
 {
 #pragma region Variables
 public:
-
+	Vector3 scaleVector;
 private:
 
 #pragma endregion

@@ -67,17 +67,21 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Maths.cpp" />
     <ClCompile Include="RotationComponent.cpp" />
     <ClCompile Include="ScaleComponent.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
+    <ClCompile Include="Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameComponent.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="Maths.h" />
     <ClInclude Include="RotationComponent.h" />
     <ClInclude Include="ScaleComponent.h" />
     <ClInclude Include="TransformComponent.h" />
+    <ClInclude Include="Vector3.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
