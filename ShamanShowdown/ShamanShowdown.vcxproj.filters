@@ -13,75 +13,57 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\Rendering">
-      <UniqueIdentifier>{dfa4ac22-8243-4ba6-a41d-2893b2e9b276}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Rendering">
-      <UniqueIdentifier>{db3eca81-6d58-438f-b5f8-485a2f4a0884}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Rendering\Components">
-      <UniqueIdentifier>{e57b40a5-6c53-4872-b80b-1a1460ae3988}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Rendering\Components">
-      <UniqueIdentifier>{fef80bd8-38c1-4de3-b744-a2b15a91b735}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Maths">
-      <UniqueIdentifier>{5d2dbe01-2de9-4290-a7ab-b36a0ba53185}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Maths">
-      <UniqueIdentifier>{74c27a3d-3612-4cf8-a5c8-b173a0a35dda}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files\Rendering</Filter>
-    </ClCompile>
     <ClCompile Include="GameState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RotationComponent.cpp">
-      <Filter>Source Files\Rendering\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="ScaleComponent.cpp">
-      <Filter>Source Files\Rendering\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="TransformComponent.cpp">
-      <Filter>Source Files\Rendering\Components</Filter>
-    </ClCompile>
     <ClCompile Include="Maths.cpp">
-      <Filter>Source Files\Maths</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Vector3.cpp">
-      <Filter>Source Files\Maths</Filter>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RotationComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScaleComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Header Files\Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="GameComponent.h">
-      <Filter>Header Files\Rendering\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="RotationComponent.h">
-      <Filter>Header Files\Rendering\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="ScaleComponent.h">
-      <Filter>Header Files\Rendering\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="TransformComponent.h">
-      <Filter>Header Files\Rendering\Components</Filter>
+    <ClInclude Include="Maths.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Vector3.h">
-      <Filter>Header Files\Maths</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Maths.h">
-      <Filter>Header Files\Maths</Filter>
+    <ClInclude Include="GameComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RotationComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScaleComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
