@@ -64,7 +64,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameState.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="RotationComponent.cpp" />
+    <ClCompile Include="ScaleComponent.cpp" />
+    <ClCompile Include="TransformComponent.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameComponent.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameState.h" />
+    <ClInclude Include="RotationComponent.h" />
+    <ClInclude Include="ScaleComponent.h" />
+    <ClInclude Include="TransformComponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
