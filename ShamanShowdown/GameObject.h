@@ -1,6 +1,6 @@
 #pragma once
 //STL Includes
-#include <list>
+#include <vector>
 
 //Custom Includes
 #include "GameComponent.h"
@@ -11,7 +11,7 @@ class GameObject
 {
 #pragma region Variables
 public:
-	std::list<GameComponent*> gameComponents;
+	vector<GameComponent*> gameComponents;
 private:
 
 #pragma endregion
