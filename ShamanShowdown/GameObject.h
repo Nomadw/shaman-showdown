@@ -17,6 +17,7 @@ private:
 #pragma endregion
 
 #pragma region Constructors/Destuctors
+public:
 	GameObject();
 	~GameObject();
 #pragma endregion
@@ -29,7 +30,8 @@ private:
 
 #pragma region Functions
 public:
-
+	void attachComponent(GameComponent* gameComponent);
+	//template T ttt   ngetComponent<typename T>();
 private:
 #pragma endregion
 

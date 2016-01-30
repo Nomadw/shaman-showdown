@@ -16,6 +16,7 @@ private:
 #pragma endregion
 
 #pragma region Constructors/Destuctors
+public:
 	ScaleComponent();
 	~ScaleComponent();
 #pragma endregion
