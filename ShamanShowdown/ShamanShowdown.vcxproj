@@ -72,6 +72,7 @@
     <ClCompile Include="HealthComponent.cpp" />
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="InventoryComponent.cpp" />
+    <ClCompile Include="ItemComponent.cpp" />
     <ClCompile Include="MagicComponent.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -97,6 +98,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Globals.h" />
+    <ClInclude Include="ItemComponent.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="HealthComponent.h" />
     <ClInclude Include="InputComponent.h" />

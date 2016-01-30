@@ -2,11 +2,14 @@
 #include <fstream>
 #include <string>
 #include <streambuf>
+#include "GameState.h"
+#include "ObjectComponent.h"
 
 using namespace std;
 
-Map::Map()
+Map::Map(GameState* gameState)
 {
+	this->gameState = gameState;
 }
 
 Map::Map(TileCollection tiles)
@@ -143,6 +146,20 @@ void Map::loadMap(char* fileLocation)
 			tmpTile.setItemID(itemID);
 			tmpTile.setSuperObjectID(superObjID);
 			tmpTile.isRitualZone(ritualZone);
+
+			//Create the GameObjects
+			GameObject* gsObj = new GameObject();
+			gsObj->attachComponent(new ObjectComponent(objID));
+			gameState->addGameObject(gsObj);
+
+			GameObject* gsItem = new GameObject();
+			gsItem->attachComponent(new ObjectComponent(itemID));
+			gameState->addGameObject(gsItem);
+
+			GameObject* gsSuper = new GameObject();
+			gsSuper->attachComponent(new ObjectComponent(superObjID));
+			gameState->addGameObject(gsSuper);
+
 
 			tmpCol.push_back(tmpTile);
 		}

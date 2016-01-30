@@ -22,5 +22,8 @@ void RenderComponent::update(GameState * state, float deltaTime, Controls* contr
 
 void RenderComponent::render(Renderer * renderer)
 {
-	renderer->draw(texture, x * 64, y * 64, size);
+	if (renderer->currentPass == RENDER_PASS_CHARACTER)
+	{
+		renderer->draw(texture, x * 64, y * 64, size);
+	}
 }

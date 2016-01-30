@@ -7,11 +7,12 @@
 #include "GameState.h"
 #include <vector>
 
+class GameState;
 
 class Map : public GameComponent
 {
 public:
-	Map();
+	Map(GameState* gameState);
 	Map(TileCollection tiles);
 	~Map();
 
@@ -28,5 +29,6 @@ public:
 private:
 	TileCollection tiles;
 	bool to_bool(string const& s);
+	GameState* gameState;
 };
 
