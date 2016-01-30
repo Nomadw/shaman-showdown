@@ -5,6 +5,8 @@
 #include "GameState.h"
 #include "ObjectComponent.h"
 #include "ItemComponent.h"
+#include "TransformComponent.h"
+
 using namespace std;
 
 Map::Map(GameState* gameState)
@@ -152,7 +154,9 @@ void Map::loadMap(char* fileLocation)
 			{
 				GameObject* gsObj = new GameObject();
 				gsObj->attachComponent(new ObjectComponent(objID));
+				gsObj->transform->Translation() = Vector3(i + 1, j + 1);
 				gameState->addGameObject(gsObj);
+				
 			}
 
 			if (itemID >= 0)
