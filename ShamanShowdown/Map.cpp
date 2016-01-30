@@ -27,7 +27,7 @@ TileCollection Map::getTiles()
 
 void Map::setTile(int x, int y, Tile value)
 {
-	tiles.at(x).at(y) = value;
+	tiles[x][y] = value;
 }
 
 void Map::setMap(TileCollection newMap) 
