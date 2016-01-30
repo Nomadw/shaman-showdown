@@ -1,10 +1,15 @@
-#pragma once
+ #pragma once
 
 #include <windows.h>	// need to be able to create windows etc
 #include <gl/gl.h>		// opengl header file
 #include <gl/glu.h>		// glu header file - glu helps us set up the perspective projection
+#include "Globals.h"
 
-#include "Renderer.h"
+#include "Controls.h"
+
+#include "Map.h"
+
+#include <time.h>
 
 // some basic numbers to hold the position and size of the window
 #define WIDTH		800
@@ -16,10 +21,16 @@
 #pragma comment(lib, "opengl32.lib")	
 #pragma comment(lib, "glu32.lib")
 
+Renderer* renderer;
+
+
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam);
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine, int iCmdShow);
 
 void draw(HDC deviceContext, Renderer * renderer);
+
+float runTime = 0;
+Map map = Map();
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine, int iCmdShow)
 {
@@ -87,13 +98,24 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 
 	glMatrixMode(GL_PROJECTION);	// select the projection matrix, i.e. the one that controls the "camera"
 	glLoadIdentity();				// reset it
-	glOrtho(-1, 1, 1, -1, -100, 100);
+	glOrtho(0, 10, 10, 0, -100, 100);
 	glViewport(0, 0, WIDTH, HEIGHT);							// make the viewport cover the whole window
-	glClearColor(0.5, 0, 0, 0);								// set the colour used for clearing the screen
+	glClearColor(0.5, 0, 0, 0);								// set the colour used for clearing the 
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	Controls controls;
+	renderer = new Renderer();
 
-	Renderer renderer = Renderer();
+	renderer->loadTexture("test.tga", "missile1");
+	int id = renderer->getTexture("missile1");
+	float deltaTime = 0;
+
+	map.loadMap("PLACEHOLDER");
+
 	while (!needToQuit)
 	{
+		clock_t startFrameTime = clock();
+		controls.clearKeysReleased();
 		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
 		{
 			if (msg.message == WM_QUIT)
@@ -102,12 +124,25 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 			}
 			else
 			{
+				if (msg.message == WM_KEYDOWN)
+				{
+					controls.handleKeyPressed(msg.wParam);
+				}
+				if (msg.message == WM_KEYUP)
+				{
+					controls.handleKeyRelease(msg.wParam);
+				}
 				TranslateMessage(&msg);
 				DispatchMessage(&msg);
 			}
 		}
-
-		draw(myDeviceContext, &renderer);
+		if (controls.isKeyPressed(VK_ESCAPE)) 
+		{
+			runTime += deltaTime;
+		}
+		draw(myDeviceContext, renderer);
+		clock_t endFrameTime = clock();
+		deltaTime= (float)(endFrameTime - startFrameTime) / (float)CLOCKS_PER_SEC;
 
 	}
 	wglMakeCurrent(NULL, NULL);
@@ -127,7 +162,9 @@ void draw(HDC deviceContext, Renderer * renderer)
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);		// clear the screen and the depth buffer
 
-	renderer->draw(0,0,0);
+	//renderer->draw(0, runTime / 10.0f, 0, 1.0f);
+
+	map.draw(renderer);
 
 	SwapBuffers(deviceContext);									// put our triangles on the screen!
 
