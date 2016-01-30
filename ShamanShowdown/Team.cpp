@@ -5,6 +5,7 @@
 #include "InputComponent.h"
 #include "RenderComponent.h"
 #include "TransformComponent.h"
+#include "MeleeComponent.h"
 
 WPARAM moveChars[16] = { 'T', 'F', 'G', 'H', VK_UP, VK_LEFT, VK_DOWN, VK_RIGHT, 'W', 'A', 'S', 'D', 'I', 'J', 'K', 'L', };
 
@@ -27,6 +28,7 @@ GameObject * Team::BuildWarrior(int teamNumber)
 	int typeOffset = 0;
 	characters[1]->attachComponent(new InputComponent(moveChars[teamOffset + typeOffset + 0], moveChars[teamOffset + typeOffset + 1], moveChars[teamOffset + typeOffset + 2], moveChars[teamOffset + typeOffset + 3]));
 	characters[1]->attachComponent(new RenderComponent(teamNumber == 0 ? 18 : 19));
+	characters[1]->attachComponent(new MeleeComponent());
 	characters[1]->transform->Translation() = Vector3(teamNumber == 0 ? 18 : 2, 2);
 
 	return object;

@@ -53,8 +53,8 @@
     <ClInclude Include="Team.h" />
     <ClInclude Include="ObjectComponent.h" />
     <ClInclude Include="ItemComponent.h" />
-    <ClInclude Include="MagicProjectileComponent.h" />
     <ClInclude Include="UserInterface.h" />
+    <ClInclude Include="MagicProjectileComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="test.tga" />

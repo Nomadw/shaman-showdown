@@ -11,6 +11,8 @@ class MeleeComponent : public GameComponent
 public:
 private:
 	int strength;
+	float stabTime;
+	float stabDelay;
 #pragma endregion
 
 #pragma region Constructors/Destuctors
@@ -29,8 +31,8 @@ private:
 #pragma region Functions
 public:
 	//Overriders for the abstract base GameComponent
-	void update();
-	void render();
+	virtual void render(Renderer * renderer);
+	virtual void update(GameState * state, float deltaTime, Controls* controls, GameObject * object);
 private:
 #pragma endregion
 

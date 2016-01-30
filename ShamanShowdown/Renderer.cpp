@@ -64,7 +64,7 @@ void Renderer::draw(int textureID, float x, float y, float size)
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-void Renderer::draw(int textureID, float x, float y)
+void Renderer::draw(int textureID, float x, float y, float sizex, float sizey)
 {
 	glBindTexture(GL_TEXTURE_2D, textures[textureID]->ID);
 	glEnableClientState(GL_VERTEX_ARRAY);
@@ -75,7 +75,7 @@ void Renderer::draw(int textureID, float x, float y)
 
 	glLoadIdentity();
 	glTranslatef(x, y, 0);
-	glScalef(x, y, 1);
+	glScalef(sizex, sizey, 1);
 	glVertexPointer(2, GL_FLOAT, 4 * sizeof(float), verticies);
 	glTexCoordPointer(2, GL_FLOAT, 4 * sizeof(float), verticies + 2);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, indicies);

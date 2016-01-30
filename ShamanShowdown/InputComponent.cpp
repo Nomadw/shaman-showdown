@@ -35,23 +35,34 @@ void InputComponent::update(GameState * state, float deltaTime, Controls* contro
 	{
 		moveY += -1;
 		render->texture = 16;
+		transform->Rotation().getY() = -1;
 	}
 	if (controls->isKeyPressed(chars[KEYS_LEFT]))
 	{
 		moveX += -1;
 		render->texture = 18;
+		transform->Rotation().getX() = -1;
 	}
 	if (controls->isKeyPressed(chars[KEYS_DOWN]))
 	{
 		moveY += 1;
 		render->texture = 17;
+		transform->Rotation().getY() = 1;
 	}
 	if (controls->isKeyPressed(chars[KEYS_RIGHT]))
 	{
 		moveX += 1;
 		render->texture = 19;
+		transform->Rotation().getX() = 1;
 	}
-
+	if (moveX == 0) 
+	{
+		transform->Rotation().getX() = 0;
+	}
+	if (moveY == 0)
+	{
+		transform->Rotation().getY() = 0;
+	}
 	float hypotenuse = sqrt(pow(moveX, 2) + pow(moveY, 2));
 	if (hypotenuse > 0)
 	{
