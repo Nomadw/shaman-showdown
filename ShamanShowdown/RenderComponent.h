@@ -9,8 +9,8 @@ class RenderComponent : public GameComponent
 {
 #pragma region Variables
 public:
-private:
 	int texture;
+private:
 	float x;
 	float y;
 	float size;

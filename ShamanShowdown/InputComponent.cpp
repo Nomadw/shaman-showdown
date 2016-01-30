@@ -3,6 +3,7 @@
 #include "TransformComponent.h"
 #include "GameObject.h"
 #include "Map.h"
+#include "RenderComponent.h"
 
 #pragma region private prototypes
 void rightKey(TransformComponent* transform);
@@ -27,24 +28,28 @@ InputComponent::~InputComponent()
 void InputComponent::update(GameState * state, float deltaTime, Controls* controls, GameObject * object)
 {
 	TransformComponent* transform = object->transform;
-
+	RenderComponent * render = (RenderComponent *)object->getComponent<RenderComponent>();
 	float moveX = 0, moveY = 0;
 
 	if (controls->isKeyPressed(chars[KEYS_UP]))
 	{
 		moveY += -1;
+		render->texture = 16;
 	}
 	if (controls->isKeyPressed(chars[KEYS_LEFT]))
 	{
 		moveX += -1;
+		render->texture = 18;
 	}
 	if (controls->isKeyPressed(chars[KEYS_DOWN]))
 	{
 		moveY += 1;
+		render->texture = 17;
 	}
 	if (controls->isKeyPressed(chars[KEYS_RIGHT]))
 	{
 		moveX += 1;
+		render->texture = 19;
 	}
 
 	float hypotenuse = sqrt(pow(moveX, 2) + pow(moveY, 2));
