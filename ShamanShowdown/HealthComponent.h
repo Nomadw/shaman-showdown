@@ -1,6 +1,4 @@
 #pragma once
-//STL Includes
-
 //Custom Includes
 #include "GameComponent.h"
 

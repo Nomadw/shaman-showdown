@@ -26,6 +26,7 @@
     <ClCompile Include="ItemComponent.cpp" />
     <ClCompile Include="UserInterface.cpp" />
     <ClCompile Include="MagicProjectileComponent.cpp" />
+    <ClCompile Include="TeamMemberComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controls.h" />
@@ -55,6 +56,7 @@
     <ClInclude Include="ItemComponent.h" />
     <ClInclude Include="UserInterface.h" />
     <ClInclude Include="MagicProjectileComponent.h" />
+    <ClInclude Include="TeamMemberComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="test.tga" />
