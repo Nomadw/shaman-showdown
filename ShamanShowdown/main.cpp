@@ -29,10 +29,8 @@ GameState * state;
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam);
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine, int iCmdShow);
 
-void draw(HDC deviceContext, Renderer * renderer);
-
 float runTime = 0;
-Map map = Map();
+//Map map = Map();
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine, int iCmdShow)
 {
@@ -115,7 +113,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	int id = renderer->getTexture("missile1");
 	float deltaTime = 0;
 
-	map.loadMap("PLACEHOLDER");
+	//map.loadMap("PLACEHOLDER");
 
 	while (!needToQuit)
 	{
@@ -146,10 +144,15 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 			needToQuit = true;
 		}
 		state->update(deltaTime, &controls);
+		
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);		// clear the screen and the depth buffer
+
 		state->render(renderer);
-		draw(myDeviceContext, renderer);
+
+		SwapBuffers(myDeviceContext);									// put our triangles on the screen!
+
 		clock_t endFrameTime = clock();
-		deltaTime= (float)(endFrameTime - startFrameTime) / (float)CLOCKS_PER_SEC;
+		deltaTime = (float)(endFrameTime - startFrameTime) / (float)CLOCKS_PER_SEC;
 
 	}
 	wglMakeCurrent(NULL, NULL);
@@ -164,18 +167,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	return msg.wParam;
 }
 
-void draw(HDC deviceContext, Renderer * renderer)
-{
-
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);		// clear the screen and the depth buffer
-
-	//renderer->draw(0, runTime / 10.0f, 0, 1.0f);
-
-	map.draw(renderer);
-
-	SwapBuffers(deviceContext);									// put our triangles on the screen!
-
-}
 
 // this function is called when any events happen to our window
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)

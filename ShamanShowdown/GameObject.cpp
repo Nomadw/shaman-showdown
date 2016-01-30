@@ -1,6 +1,4 @@
 #include "GameObject.h"
-#include "Controls.h"
-#include "GameState.h"
 
 GameObject::GameObject()
 {
@@ -22,5 +20,13 @@ void GameObject::update(GameState * state, float deltaTime, Controls* controls)
 	for (int i = 0; i < gameComponents.size(); i++)
 	{
 		gameComponents[i]->update(state, deltaTime, controls, this);
+	}
+}
+
+void GameObject::render(Renderer * renderer)
+{
+	for (int i = 0; i < gameComponents.size(); i++)
+	{
+		gameComponents[i]->render(renderer);
 	}
 }

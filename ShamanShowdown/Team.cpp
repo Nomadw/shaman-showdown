@@ -1,13 +1,11 @@
 #include "Team.h"
 #include "Controls.h"
 #include "GameState.h"
+#include "Map.h"
 
 Team::Team()
 {
-	characters[0] = GameObject();
-	characters[1] = GameObject();
-	BuildWarrior();
-	BuildShaman();
+
 }
 
 
@@ -16,20 +14,19 @@ Team::~Team()
 }
 
 
-void Team::BuildWarrior()
+GameObject * Team::BuildWarrior()
 {
-
+	GameObject * object = new GameObject();
+	characters[1] = object;
+	return object;
 }
 
-void Team::BuildShaman()
+GameObject * Team::BuildShaman()
 {
-
-}
-
-
-void Team::update(GameState * state, float deltaTime, Controls* controls)
-{
-	characters[0].update(state, deltaTime, controls);
-	characters[1].update(state, deltaTime, controls);
-
+	GameObject * object = new GameObject();
+	characters[0] = object;
+	Map * map = new Map();
+	map->loadMap("fuck");
+	object->attachComponent(map);
+	return object;
 }

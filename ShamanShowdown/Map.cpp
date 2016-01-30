@@ -50,7 +50,7 @@ void Map::loadMap(char* fileLocation)
 	}
 }
 
-void Map::draw(Renderer* renderer)
+void Map::render(Renderer* renderer)
 {
 	for (int i = 0; i < tiles.length(); i++)
 	{

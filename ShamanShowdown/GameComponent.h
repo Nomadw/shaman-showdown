@@ -3,11 +3,12 @@
 class GameState;
 class Controls;
 class GameObject;
+class Renderer;
 
 class GameComponent
 {
 public:
-	virtual void render() = 0;
+	virtual void render(Renderer * renderer) = 0;
 	virtual void update(GameState * state, float deltaTime, Controls* controls, GameObject * object) = 0;
 };
 

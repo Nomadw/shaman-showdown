@@ -5,7 +5,8 @@
 //Custom Includes
 #include "Team.h"
 #include "Controls.h"
-#include "Renderer.h"
+class Renderer;
+
 using namespace std;
 class GameState
 {
@@ -13,6 +14,7 @@ class GameState
 public:
 private:
 	vector<Team> teams;
+	vector<GameObject*> gameObjects;
 #pragma endregion
 
 #pragma region Constructors/Destuctors
