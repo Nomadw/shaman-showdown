@@ -9,6 +9,8 @@
 
 #include "Map.h"
 
+#include "UserInterface.h"
+
 #include <time.h>
 
 #include "GameState.h"
@@ -113,9 +115,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 
 	GameObject* theMap = new GameObject();
 
+	UserInterface* ui = new UserInterface();
+
 	Map * map = new Map(state);
 	map->loadMap("map1.gmp");
 	theMap->attachComponent(map);
+	theMap->attachComponent(ui);
 
 	state->addGameObject(theMap);
 
@@ -140,7 +145,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	renderer->loadTexture("Textures/shaman red_left_1.tga", "rl1");
 	renderer->loadTexture("Textures/shaman red_right_1.tga", "rr1");
 
-	renderer->loadTexture("Textures/hud.tga", "hud");
+	renderer->loadTexture("Textures/HUDYOURMUDDA.tga", "hud");
+	renderer->loadTexture("Textures/healtjficlnutdshit.tga", "hud");
 
 	float deltaTime = 0;
 
