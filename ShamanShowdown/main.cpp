@@ -24,6 +24,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 
 void draw(HDC deviceContext, Renderer * renderer);
 
+float runTime = 0;
+
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine, int iCmdShow)
 {
 	MSG msg;								// this will be used to store messages from the operating system
@@ -97,7 +99,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	Renderer renderer = Renderer();
 	Controls controls;
-	renderer.loadTexture("missile_1.tga", "missile1");
+	renderer.loadTexture("test.tga", "missile1");
 	int id = renderer.getTexture("missile1");
 	float deltaTime = 0;
 	while (!needToQuit)
@@ -124,7 +126,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 				DispatchMessage(&msg);
 			}
 		}
-
+		if (controls.isKeyPressed(VK_ESCAPE)) 
+		{
+			runTime += deltaTime;
+		}
 		draw(myDeviceContext, &renderer);
 		clock_t endFrameTime = clock();
 		deltaTime= (float)(endFrameTime - startFrameTime) / (float)CLOCKS_PER_SEC;
@@ -147,7 +152,7 @@ void draw(HDC deviceContext, Renderer * renderer)
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);		// clear the screen and the depth buffer
 
-	renderer->draw(0,0,0,1.0f);
+	renderer->draw(0, runTime / 10.0f, 0, 1.0f);
 
 	SwapBuffers(deviceContext);									// put our triangles on the screen!
 
