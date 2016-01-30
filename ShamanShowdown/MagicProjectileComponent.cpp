@@ -23,16 +23,16 @@ void MagicProjectileComponent::update(GameState* state, float deltaTime, Control
 	switch (direction)
 	{
 	case SPELL_DIRECTION_UP:
-
+		object->transform->Translation().getY()--;
 		break;
 	case SPELL_DIRECTION_DOWN:
-
+		object->transform->Translation().getY()++;
 		break;
 	case SPELL_DIRECTION_LEFT:
-
+		object->transform->Translation().getX()--;
 		break;
 	case SPELL_DIRECTION_RIGHT:
-
+		object->transform->Translation().getX()++;
 		break;
 	}
 }

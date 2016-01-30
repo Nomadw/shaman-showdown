@@ -15,8 +15,8 @@
 #include "Vector3.h"
 
 // some basic numbers to hold the position and size of the window
-#define WIDTH		1280
-#define HEIGHT		720
+#define WIDTH		2048
+#define HEIGHT		1152
 #define TOPLEFTX	0
 #define TOPLEFTY	0
 
@@ -193,8 +193,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 
 		clock_t endFrameTime = clock();
 		deltaTime = (float)(endFrameTime - startFrameTime) / (float)CLOCKS_PER_SEC;
-
 	}
+
+	//ChangeDisplaySettings(&oldMode, DM_COLOR);
 	wglMakeCurrent(NULL, NULL);
 
 	// delete the rendering context, we no longer need it.
