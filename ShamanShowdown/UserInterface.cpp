@@ -3,6 +3,9 @@
 #include "GameObject.h"
 #include "Renderer.h"
 #include "Globals.h"
+#include "GameState.h"
+#include "Team.h"
+#include "HealthComponent.h"
 //#include alcohol
 //#include kim
 
@@ -22,15 +25,10 @@ UserInterface::~UserInterface()
 
 void UserInterface::update(GameState * state, float deltaTime, Controls * controls, GameObject * object)
 {
-	if (randcount > 0)
-		randcount--;
-	else {
-		health1 = rand() % 90 + 10;
-		health2 = rand() % 90 + 10;
-		health3 = rand() % 90 + 10;
-		health4 = rand() % 90 + 10;
-		randcount = 100;
-	}
+	health1 = ((HealthComponent *)state->getTeam(0).GetShaman()->getComponent<HealthComponent>())->health * 25.0f;
+	health2 = ((HealthComponent *)state->getTeam(0).GetWarrior()->getComponent<HealthComponent>())->health* 25.0f;
+	health3 = ((HealthComponent *)state->getTeam(1).GetShaman()->getComponent<HealthComponent>())->health* 25.0f;
+	health4 = ((HealthComponent *)state->getTeam(1).GetWarrior()->getComponent<HealthComponent>())->health* 25.0f;
 }
 
 void UserInterface::render(Renderer * renderer)
