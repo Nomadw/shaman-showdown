@@ -24,7 +24,7 @@ Vector3::~Vector3()
 }
 
 
-float Vector3::getX()
+float& Vector3::getX()
 {
 	return this->x;
 }
@@ -32,7 +32,7 @@ void Vector3::setX(float value)
 {
 	this->x = value;
 }
-float Vector3::getY()
+float& Vector3::getY()
 {
 	return this->y;
 }

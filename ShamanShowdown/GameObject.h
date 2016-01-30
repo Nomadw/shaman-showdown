@@ -7,6 +7,7 @@
 
 using namespace std;
 
+class TransformComponent;
 class GameState;
 class Controls;
 
@@ -15,6 +16,7 @@ class GameObject
 #pragma region Variables
 public:
 	vector<GameComponent*> gameComponents;
+	TransformComponent* transform;
 private:
 
 #pragma endregion
@@ -27,7 +29,6 @@ public:
 
 #pragma region Mutators
 public:
-
 private:
 #pragma endregion
 

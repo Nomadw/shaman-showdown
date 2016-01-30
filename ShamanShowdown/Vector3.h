@@ -26,10 +26,10 @@ public:
 
 #pragma region Mutators
 public:
-	float getX();
+	float& getX();
 	void setX(float value);
 
-	float getY();
+	float& getY();
 	void setY(float value);
 private:
 #pragma endregion

@@ -10,11 +10,15 @@ class RenderComponent : public GameComponent
 #pragma region Variables
 public:
 private:
+	int texture;
+	float x;
+	float y;
+	float size;
 #pragma endregion
 
 #pragma region Constructors/Destuctors
 public:
-	RenderComponent();
+	RenderComponent(int textureID);
 	~RenderComponent();
 #pragma endregion
 
@@ -26,8 +30,8 @@ private:
 #pragma region Functions
 public:
 	//Overriders for the abstract base GameComponent
-	void update();
-	void render();
+	void update(GameState * state, float deltaTime, Controls* controls, GameObject * object);
+	void render(Renderer * renderer);
 private:
 #pragma endregion
 

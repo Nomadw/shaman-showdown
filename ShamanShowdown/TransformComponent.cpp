@@ -11,12 +11,12 @@ TransformComponent::~TransformComponent()
 
 }
 
-void TransformComponent::update()
+void TransformComponent::render(Renderer * renderer)
 {
 
 }
 
-void TransformComponent::render()
+void TransformComponent::update(GameState * state, float deltaTime, Controls* controls, GameObject * object)
 {
 
 }

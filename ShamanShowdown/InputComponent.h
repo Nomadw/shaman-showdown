@@ -4,6 +4,8 @@
 //Custom Includes
 #include "GameComponent.h"
 
+class TransformComponent;
+
 using namespace std;
 class InputComponent : public GameComponent
 {
@@ -18,6 +20,11 @@ public:
 	~InputComponent();
 #pragma endregion
 
+#pragma region Variables
+public:
+private:
+#pragma endregion
+
 #pragma region Mutators
 public:
 private:
@@ -26,8 +33,8 @@ private:
 #pragma region Functions
 public:
 	//Overriders for the abstract base GameComponent
-	void update();
-	void render();
+	void update(GameState * state, float deltaTime, Controls* controls, GameObject * object);
+	void render(Renderer * renderer);
 private:
 #pragma endregion
 
