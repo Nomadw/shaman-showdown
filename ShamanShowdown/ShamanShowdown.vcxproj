@@ -73,6 +73,10 @@
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Team.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="RotationComponent.cpp" />
+    <ClCompile Include="ScaleComponent.cpp" />
+    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
     <ClCompile Include="Vector3.cpp" />
   </ItemGroup>
@@ -85,6 +89,10 @@
     <ClInclude Include="Melee.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Team.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="RotationComponent.h" />
+    <ClInclude Include="ScaleComponent.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TransformComponent.h" />
     <ClInclude Include="Vector3.h" />
