@@ -25,5 +25,8 @@ void ItemComponent::update(GameState* state, float deltaTime, Controls* controls
 
 void ItemComponent::render(Renderer * renderer)
 {
-	renderer->draw(texture, x * 64, y * 64, size);
+	if (renderer->currentPass == RENDER_PASS_ITEM)
+	{
+		renderer->draw(texture, x * 64, y * 64, size);
+	}
 }
