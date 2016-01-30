@@ -89,9 +89,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	glLoadIdentity();				// reset it
 	glOrtho(-1, 1, 1, -1, -100, 100);
 	glViewport(0, 0, WIDTH, HEIGHT);							// make the viewport cover the whole window
-	glClearColor(0.5, 0, 0, 0);								// set the colour used for clearing the screen
-
+	glClearColor(0.5, 0, 0, 0);								// set the colour used for clearing the 
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	Renderer renderer = Renderer();
+	renderer.loadTexture("missile_1.tga", "missile1");
 	while (!needToQuit)
 	{
 		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
