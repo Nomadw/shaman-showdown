@@ -5,6 +5,8 @@
 #include <gl/glu.h>		// glu header file - glu helps us set up the perspective projection
 
 #include "Renderer.h"
+#include "GameObject.h"
+#include "ComponentStub.h"
 
 // some basic numbers to hold the position and size of the window
 #define WIDTH		800
@@ -90,6 +92,19 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	glOrtho(-1, 1, 1, -1, -100, 100);
 	glViewport(0, 0, WIDTH, HEIGHT);							// make the viewport cover the whole window
 	glClearColor(0.5, 0, 0, 0);								// set the colour used for clearing the screen
+
+
+	GameObject p = GameObject();
+	p.attachComponent(new HealthComponent());
+	p.attachComponent(new InputComponent());
+	p.attachComponent(new InventoryComponent());
+	p.attachComponent(new MagicComponent());
+	p.attachComponent(new MeleeComponent());
+	p.attachComponent(new PhysicsComponent());
+	p.attachComponent(new TransformComponent());
+	p.attachComponent(new RenderComponent());
+
+	p.getComponent<TransformComponent>();
 
 	Renderer renderer = Renderer();
 	while (!needToQuit)

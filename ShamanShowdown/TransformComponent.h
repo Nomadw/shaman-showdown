@@ -6,7 +6,7 @@
 #include "Vector3.h"
 
 using namespace std;
-class TransformComponent : GameComponent
+class TransformComponent : public GameComponent
 {
 #pragma region Variables
 public:

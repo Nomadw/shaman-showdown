@@ -30,8 +30,22 @@ private:
 
 #pragma region Functions
 public:
-	void attachComponent(GameComponent* gameComponent);
-	//template T ttt   ngetComponent<typename T>();
+	void attachComponent(GameComponent* gameComponent); 
+	
+	template<typename T> GameComponent& getComponent()
+	{
+		int i = 0;
+		for each(GameComponent* comp in gameComponents)
+		{
+			if (dynamic_cast<T*>(comp) != NULL)
+			{
+				return *comp;
+			}
+			i++;
+		}
+		return (*reinterpret_cast<GameComponent*>(NULL));
+	}
+
 private:
 #pragma endregion
 

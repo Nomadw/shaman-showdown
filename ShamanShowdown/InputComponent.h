@@ -3,27 +3,23 @@
 
 //Custom Includes
 #include "GameComponent.h"
-#include "Vector3.h"
 
 using namespace std;
-class ScaleComponent : GameComponent
+class InputComponent : public GameComponent
 {
 #pragma region Variables
 public:
-	Vector3 scaleVector;
 private:
-
 #pragma endregion
 
 #pragma region Constructors/Destuctors
 public:
-	ScaleComponent();
-	~ScaleComponent();
+	InputComponent();
+	~InputComponent();
 #pragma endregion
 
 #pragma region Mutators
 public:
-
 private:
 #pragma endregion
 
@@ -32,10 +28,8 @@ public:
 	//Overriders for the abstract base GameComponent
 	void update();
 	void render();
-
 private:
 #pragma endregion
 
 private:
 };
-

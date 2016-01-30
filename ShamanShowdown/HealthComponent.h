@@ -3,27 +3,23 @@
 
 //Custom Includes
 #include "GameComponent.h"
-#include "Vector3.h"
 
 using namespace std;
-class RotationComponent : GameComponent
+class HealthComponent : public GameComponent
 {
 #pragma region Variables
 public:
-	Vector3 rotationVector;
 private:
-
 #pragma endregion
 
 #pragma region Constructors/Destuctors
 public:
-	RotationComponent();
-	~RotationComponent();
+	HealthComponent();
+	~HealthComponent();
 #pragma endregion
 
 #pragma region Mutators
 public:
-
 private:
 #pragma endregion
 
