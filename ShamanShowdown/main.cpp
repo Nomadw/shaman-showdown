@@ -119,10 +119,24 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 
 	state->addGameObject(theMap);
 
-	renderer->loadTexture("test.tga", "missile1");
-	renderer->loadTexture("test.tga", "missile1");
-	//renderer->loadTexture("shaman-red.tga", "text2");
-	int id = renderer->getTexture("missile1");
+	renderer->loadTexture("Textures/wall.tga", "wall");
+	renderer->loadTexture("Textures/grass-flowers.tga", "grass");
+	renderer->loadTexture("Textures/tree.tga", "tree");
+	renderer->loadTexture("Textures/shrub.tga", "shrub");
+	renderer->loadTexture("Textures/stone.tga", "stone");
+	renderer->loadTexture("Textures/mud.tga", "mud");
+	renderer->loadTexture("Textures/henge-lr.tga", "henge-lr");
+	renderer->loadTexture("Textures/henge-tb.tga", "henge-tb");
+	renderer->loadTexture("Textures/henge-tlbr.tga", "henge-tlbr");
+	renderer->loadTexture("Textures/henge-trbl.tga", "henge-trbl");
+	renderer->loadTexture("Textures/river-horizonal.tga", "river-horizontal");
+	renderer->loadTexture("Textures/river-vertical.tga", "river-vertical");
+	renderer->loadTexture("Textures/river-tesselate.tga", "river-tesselate");
+	renderer->loadTexture("Textures/bridge-vert.tga", "bridge-vert");
+	renderer->loadTexture("Textures/bridge-horz.tga", "bridge-horz");
+	renderer->loadTexture("Textures/tree-rocks.tga", "tree-rocks");
+	renderer->loadTexture("Textures/hud.tga", "hud");
+
 	float deltaTime = 0;
 
 	//map.loadMap("PLACEHOLDER");
