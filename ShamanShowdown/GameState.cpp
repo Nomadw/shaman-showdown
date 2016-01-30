@@ -18,10 +18,10 @@ Team GameState::getTeam(int index)
 void GameState::Initialize()
 {
 	teams.emplace_back();
-	gameObjects.push_back(teams[0].BuildShaman());
+	gameObjects.push_back(teams[0].BuildShaman(0));
 	gameObjects.push_back(teams[0].BuildWarrior(0));
 	teams.emplace_back();
-	gameObjects.push_back(teams[1].BuildShaman());
+	gameObjects.push_back(teams[1].BuildShaman(1));
 	gameObjects.push_back(teams[1].BuildWarrior(1));
 }
 

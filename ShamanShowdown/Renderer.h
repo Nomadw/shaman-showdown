@@ -5,7 +5,7 @@ class Texture;
 
 using namespace std;
 
-enum RENDER_PASS {RENDER_PASS_GROUND, RENDER_PASS_SPRITES, RENDER_PASS_UI};
+enum RENDER_PASS { RENDER_PASS_GROUND, RENDER_PASS_OBJECT, RENDER_PASS_ITEM, RENDER_PASS_CHARACTER, RENDER_PASS_ABOVE, RENDER_PASS_UI };
 
 class Renderer
 {
@@ -17,6 +17,7 @@ public:
 	int loadTexture(char * fileName, char * name);
 	vector<Texture *> textures;
 	int getTexture(char * name);
+	RENDER_PASS currentPass;
 private:
 	float * verticies;
 	unsigned int * indicies;

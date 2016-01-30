@@ -12,6 +12,7 @@
 #include <time.h>
 
 #include "GameState.h"
+#include "Vector3.h"
 
 // some basic numbers to hold the position and size of the window
 #define WIDTH		1280
@@ -157,9 +158,18 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 		state->update(deltaTime, &controls);
 		
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);		// clear the screen and the depth buffer
-
+		renderer->currentPass = RENDER_PASS_GROUND;
 		state->render(renderer);
-
+		renderer->currentPass = RENDER_PASS_OBJECT;
+		state->render(renderer);
+		renderer->currentPass = RENDER_PASS_ITEM;
+		state->render(renderer);
+		renderer->currentPass = RENDER_PASS_CHARACTER;
+		state->render(renderer);
+		renderer->currentPass = RENDER_PASS_ABOVE;
+		state->render(renderer);
+		renderer->currentPass = RENDER_PASS_UI;
+		state->render(renderer);
 		SwapBuffers(myDeviceContext);									// put our triangles on the screen!
 
 		clock_t endFrameTime = clock();

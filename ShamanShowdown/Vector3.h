@@ -42,11 +42,43 @@ private:
 
 #pragma region Operators
 public:
-	float& operator[](int index);
-	Vector3 operator+=(Vector3 other);
-	Vector3 operator-=(Vector3 other);
-	Vector3 operator*=(float scalar);
-	Vector3 operator/=(float scalar);
+	float& Vector3::operator[](int index)
+	{
+		switch (index)
+		{
+		case 0:
+			return this->x;
+			break;
+		default:
+			return this->y;
+			break;
+		}
+	};
+
+	Vector3& Vector3::operator+=(const Vector3& other)
+	{
+		this->x += other.x;
+		this->y += other.y;
+		return *this;
+	}
+	Vector3& Vector3::operator-=(const Vector3& other)
+	{
+		this->x -= other.x;
+		this->y -= other.y;
+		return *this;
+	}
+	Vector3& Vector3::operator*=(float scalar)
+	{
+		this->x *= scalar;
+		this->y *= scalar;
+		return *this;
+	}
+	Vector3& Vector3::operator/=(float scalar)
+	{
+		this->x /= scalar;
+		this->y /= scalar;
+		return *this;
+	}
 	friend Vector3 operator+(Vector3 first, const Vector3& second)
 	{
 		first += second;
