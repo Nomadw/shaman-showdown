@@ -33,8 +33,8 @@ void MeleeComponent::update(GameState * state, float deltaTime, Controls * contr
 	if (stabTime <0 && stabDelay < 0) 
 	{
 		if (controls->isKeyPressed(VK_SPACE)) 
+			stabDelay = 1.0		f;
 		{
-			stabDelay = 1.0f;
 			stabTime = 0.25f;
 		}
 	}
