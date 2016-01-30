@@ -87,34 +87,62 @@ void Map::loadMap(char* fileLocation)
 		{
 			string textID;
 			string walkableS;
+			string object;
+			string item;
+			string superObj;
+			string area;
 
-			bool addToText = true;
+			int stage = 0;
 
 			for (int k = 0; k < rows[j][i].length(); k++)
 			{
-				if (rows[j][i][k] == ',')
+				if (stage < 6)
 				{
-					addToText = false;
-				}
-				else if (rows[j][i][k] != '{' && rows[j][i][k] != '}')
-				{
-					if (addToText)
+					if (rows[j][i][k] == ',')
 					{
-						textID += rows[j][i][k];
+						stage++;
 					}
-					else
+					else if (rows[j][i][k] != '{' && rows[j][i][k] != '}')
 					{
-						walkableS += rows[j][i][k];
+						switch (stage)
+						{
+						case 0:
+							textID += rows[j][i][k];
+							break;
+						case 1:
+							walkableS += rows[j][i][k];
+							break;
+						case 2:
+							object += rows[j][i][k];
+							break;
+						case 3:
+							item += rows[j][i][k];
+							break;
+						case 4:
+							superObj += rows[j][i][k];
+							break;
+						case 5:
+							area += rows[j][i][k];
+							break;
+						}
 					}
 				}
 			}
 
 			int textureID = atoi(textID.c_str());
 			bool walkable = to_bool(walkableS);
+			int objID = atoi(object.c_str());
+			int itemID = atoi(item.c_str());
+			int superObjID = atoi(item.c_str());
+			bool ritualZone = to_bool(area);
 
 			Tile tmpTile = Tile();
 			tmpTile.setTexture(textureID);
 			tmpTile.isWalkable(walkable);
+			tmpTile.setObjectID(objID);
+			tmpTile.setItemID(itemID);
+			tmpTile.setSuperObjectID(superObjID);
+			tmpTile.isRitualZone(ritualZone);
 
 			tmpCol.push_back(tmpTile);
 		}
