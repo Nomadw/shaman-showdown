@@ -10,19 +10,23 @@ class TransformComponent : GameComponent
 {
 #pragma region Variables
 public:
-	Vector3 transformVector;
 private:
-
+	Vector3 translationVector;
+	Vector3 rotationVector;
+	Vector3 scaleVector;
 #pragma endregion
 
 #pragma region Constructors/Destuctors
+public:
 	TransformComponent();
 	~TransformComponent();
 #pragma endregion
 
 #pragma region Mutators
 public:
-
+	Vector3& Translation();
+	Vector3& Rotation();
+	Vector3& Scale();
 private:
 #pragma endregion
 

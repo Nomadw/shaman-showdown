@@ -1,37 +1,35 @@
 #pragma once
 //STL Includes
+#include <list>
 
 //Custom Includes
-#include "GameComponent.h"
-#include "Vector3.h"
-
+#include "GameObject.h"
 using namespace std;
-class RotationComponent : GameComponent
+class MeleeComponent
 {
 #pragma region Variables
 public:
-	Vector3 rotationVector;
-private:
 
+private:
+	int strength;
 #pragma endregion
 
 #pragma region Constructors/Destuctors
 public:
-	RotationComponent();
-	~RotationComponent();
+	MeleeComponent();
+	~MeleeComponent();
 #pragma endregion
 
 #pragma region Mutators
 public:
-
+	int GetStrength();
+	void SetStrength(int value);
 private:
 #pragma endregion
 
 #pragma region Functions
 public:
-	//Overriders for the abstract base GameComponent
-	void update();
-	void render();
+
 private:
 #pragma endregion
 
