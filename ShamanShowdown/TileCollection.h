@@ -12,5 +12,7 @@ public:
 	TileColumn getColumn(int index);
 
 	TileColumn& operator[](int x);
+
+	int size();
 };
 

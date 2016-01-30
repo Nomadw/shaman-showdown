@@ -9,5 +9,7 @@ public:
 	~TileColumn();
 
 	Tile& operator[](int y);
+
+	int size();
 };
 

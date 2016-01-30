@@ -39,3 +39,16 @@ void Map::loadMap(char* fileLocation)
 {
 
 }
+
+void Map::draw()
+{
+	for (int i = 0; i < tiles.size(); i++)
+	{
+		for (int j = 0; j < tiles[i].size(); i++)
+		{
+			Tile* tile = &tiles[i][j];
+
+
+		}
+	}
+}

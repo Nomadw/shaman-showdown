@@ -5,6 +5,6 @@ public:
 	Texture();
 	~Texture();
 	char * name;
-	int ID;
+	unsigned int ID;
 };
 

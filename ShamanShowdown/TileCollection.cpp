@@ -22,3 +22,8 @@ TileColumn& TileCollection::operator[](int x)
 {
 	return this->at(x);
 }
+
+int TileCollection::size()
+{
+	return this->size();
+}

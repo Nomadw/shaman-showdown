@@ -17,6 +17,8 @@ public:
 	void setMap(TileCollection newMap);
 
 	void loadMap(char* fileLocation);
+
+	void draw();
 private:
 	TileCollection tiles;
 };
