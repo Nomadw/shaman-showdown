@@ -14,8 +14,8 @@ class Team
 #pragma region Variables
 public:
 	
-private:
 	GameObject* characters[2];
+private:
 #pragma endregion
 
 #pragma region Constructors/Destuctors

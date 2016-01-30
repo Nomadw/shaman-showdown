@@ -3,6 +3,7 @@
 
 //Custom Includes
 #include "GameComponent.h"
+#include "Vector3.h"
 
 using namespace std;
 class MeleeComponent : public GameComponent
@@ -13,6 +14,7 @@ private:
 	int strength;
 	float stabTime;
 	float stabDelay;
+	Vector3 stab;
 #pragma endregion
 
 #pragma region Constructors/Destuctors

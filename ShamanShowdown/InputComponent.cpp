@@ -55,11 +55,11 @@ void InputComponent::update(GameState * state, float deltaTime, Controls* contro
 		render->texture = 19;
 		transform->Rotation().getX() = 1;
 	}
-	if (moveX == 0) 
+	if (moveX == 0 && moveY != 0) 
 	{
 		transform->Rotation().getX() = 0;
 	}
-	if (moveY == 0)
+	if (moveY == 0 && moveX != 0)
 	{
 		transform->Rotation().getY() = 0;
 	}
