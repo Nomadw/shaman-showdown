@@ -19,7 +19,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -73,7 +73,7 @@
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="InventoryComponent.cpp" />
     <ClCompile Include="ItemComponent.cpp" />
-    <ClCompile Include="MagicComponent.cpp" />
+    <ClCompile Include="MagicProjectileComponent.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Maths.cpp" />
@@ -103,7 +103,7 @@
     <ClInclude Include="HealthComponent.h" />
     <ClInclude Include="InputComponent.h" />
     <ClInclude Include="InventoryComponent.h" />
-    <ClInclude Include="MagicComponent.h" />
+    <ClInclude Include="MagicProjectileComponent.h" />
     <ClInclude Include="Maths.h" />
     <ClInclude Include="MeleeComponent.h" />
     <ClInclude Include="ObjectComponent.h" />

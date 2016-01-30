@@ -3,8 +3,8 @@
 
 Vector3::Vector3()
 {
-	this->x = 1;
-	this->y = 1;
+	this->x = 2;
+	this->y = 2;
 }
 
 Vector3::Vector3(int x, int y)

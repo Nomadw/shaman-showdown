@@ -18,13 +18,13 @@
     <ClCompile Include="HealthComponent.cpp" />
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="InventoryComponent.cpp" />
-    <ClCompile Include="MagicComponent.cpp" />
     <ClCompile Include="MeleeComonent.cpp" />
     <ClCompile Include="PhysicsComponent.cpp" />
     <ClCompile Include="RenderComponent.cpp" />
     <ClCompile Include="Team.cpp" />
     <ClCompile Include="ObjectComponent.cpp" />
     <ClCompile Include="ItemComponent.cpp" />
+    <ClCompile Include="MagicProjectileComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controls.h" />
@@ -46,13 +46,13 @@
     <ClInclude Include="HealthComponent.h" />
     <ClInclude Include="InputComponent.h" />
     <ClInclude Include="InventoryComponent.h" />
-    <ClInclude Include="MagicComponent.h" />
     <ClInclude Include="MeleeComponent.h" />
     <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="RenderComponent.h" />
     <ClInclude Include="Team.h" />
     <ClInclude Include="ObjectComponent.h" />
     <ClInclude Include="ItemComponent.h" />
+    <ClInclude Include="MagicProjectileComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="test.tga" />
