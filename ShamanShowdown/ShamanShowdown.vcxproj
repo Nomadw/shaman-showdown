@@ -117,6 +117,26 @@
   <ItemGroup>
     <Image Include="shaman-red.tga" />
     <Image Include="test.tga" />
+    <Image Include="Textures\board.tga" />
+    <Image Include="Textures\bridge-horz.tga" />
+    <Image Include="Textures\bridge-vert.tga" />
+    <Image Include="Textures\grass-flowers.tga" />
+    <Image Include="Textures\henge-lr.tga" />
+    <Image Include="Textures\henge-tb.tga" />
+    <Image Include="Textures\henge-tlbr.tga" />
+    <Image Include="Textures\henge-trbl.tga" />
+    <Image Include="Textures\hud.tga" />
+    <Image Include="Textures\mud.tga" />
+    <Image Include="Textures\river-horizontal.tga" />
+    <Image Include="Textures\river-tesselate.tga" />
+    <Image Include="Textures\river-vertical.tga" />
+    <Image Include="Textures\sandy-stone.tga" />
+    <Image Include="Textures\shrub.tga" />
+    <Image Include="Textures\stone.tga" />
+    <Image Include="Textures\tree-rocks.tga" />
+    <Image Include="Textures\tree.tga" />
+    <Image Include="Textures\wall.tga" />
+    <Image Include="Textures\wiper-bar.tga" />
   </ItemGroup>
   <ItemGroup>
     <None Include="map1.gmp" />
