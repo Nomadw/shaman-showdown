@@ -5,6 +5,9 @@
 #include <gl/glu.h>		// glu header file - glu helps us set up the perspective projection
 
 #include "Renderer.h"
+#include "Controls.h"
+
+#include <time.h>
 
 // some basic numbers to hold the position and size of the window
 #define WIDTH		800
@@ -93,9 +96,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	Renderer renderer = Renderer();
+	Controls controls;
 	renderer.loadTexture("missile_1.tga", "missile1");
+	int id = renderer.getTexture("missile1");
+	float deltaTime = 0;
 	while (!needToQuit)
 	{
+		clock_t startFrameTime = clock();
+		controls.clearKeysReleased();
 		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
 		{
 			if (msg.message == WM_QUIT)
@@ -104,12 +112,22 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 			}
 			else
 			{
+				if (msg.message == WM_KEYDOWN)
+				{
+					controls.handleKeyPressed(msg.wParam);
+				}
+				if (msg.message == WM_KEYUP)
+				{
+					controls.handleKeyRelease(msg.wParam);
+				}
 				TranslateMessage(&msg);
 				DispatchMessage(&msg);
 			}
 		}
 
 		draw(myDeviceContext, &renderer);
+		clock_t endFrameTime = clock();
+		deltaTime= (float)(endFrameTime - startFrameTime) / (float)CLOCKS_PER_SEC;
 
 	}
 	wglMakeCurrent(NULL, NULL);
@@ -129,7 +147,7 @@ void draw(HDC deviceContext, Renderer * renderer)
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);		// clear the screen and the depth buffer
 
-	renderer->draw(0,0,0);
+	renderer->draw(0,0,0,1.0f);
 
 	SwapBuffers(deviceContext);									// put our triangles on the screen!
 

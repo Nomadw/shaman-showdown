@@ -42,7 +42,7 @@ void Renderer::createQuad()
 	indicies[5] = 1;
 }
 
-void Renderer::draw(int textureID, float x, float y)
+void Renderer::draw(int textureID, float x, float y, float size)
 {
 	glBindTexture(GL_TEXTURE_2D, textures[textureID]->ID);
 	glEnableClientState(GL_VERTEX_ARRAY);
@@ -53,6 +53,7 @@ void Renderer::draw(int textureID, float x, float y)
 	
 	glLoadIdentity();
 	glTranslatef(x, y, 0);
+	glScalef(size, size, size);
 	glVertexPointer(2, GL_FLOAT, 4 * sizeof(float), verticies);
 	glTexCoordPointer(2, GL_FLOAT, 4 * sizeof(float), verticies + 2);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, indicies);
@@ -76,6 +77,7 @@ int Renderer::loadTexture(char * fileName, char * name)
 	short int width = *(short int*)(data + 12);
 	short int height = *(short int*)(data + 14);
 	Texture * texture = new Texture();
+	texture->name = name;
 	char * colourData = data + 18;
 	for (int i = 0; i < width * height; i++)
 	{
@@ -93,4 +95,16 @@ int Renderer::loadTexture(char * fileName, char * name)
 	textures.push_back(texture);
 	glBindTexture(GL_TEXTURE_2D,0);
 	return texture->ID;
+}
+
+int Renderer::getTexture(char * name)
+{
+	for (int i = 0; i < textures.size(); i++)
+	{
+		if (!strcmp(name, textures[i]->name))
+		{
+			return i;
+		}
+	}
+	return -1;
 }
