@@ -23,3 +23,13 @@ void Tile::setTexture(int newTex)
 {
 	texture = newTex;
 }
+
+bool Tile::isWalkable()
+{
+	return walkable;
+}
+
+void Tile::isWalkable(bool walkable)
+{
+	this->walkable = walkable;
+}

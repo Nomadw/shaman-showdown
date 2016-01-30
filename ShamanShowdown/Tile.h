@@ -10,7 +10,11 @@ public:
 	int getTexture();
 	void setTexture(int newTex);
 
+	bool isWalkable();
+	void isWalkable(bool walkable);
+
 private:
 	int texture;
+	bool walkable;
 };
 
