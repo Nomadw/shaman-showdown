@@ -109,7 +109,18 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	Controls controls;
 	renderer = new Renderer();
 	state = new GameState();
+
+	GameObject* theMap = new GameObject();
+
+	Map * map = new Map();
+	map->loadMap("map1.gmp");
+	theMap->attachComponent(map);
+
+	state->addGameObject(theMap);
+
 	renderer->loadTexture("test.tga", "missile1");
+	renderer->loadTexture("TEST2.tga", "missile2");
+	//renderer->loadTexture("shaman-red.tga", "text2");
 	int id = renderer->getTexture("missile1");
 	float deltaTime = 0;
 

@@ -41,3 +41,13 @@ void GameState::render(Renderer* renderer)
 		gameObjects[i]->render(renderer);
 	}
 }
+
+void GameState::addGameObject(GameObject* object)
+{
+	gameObjects.push_back(object);
+}
+
+vector<GameObject*> GameState::getGameObjects()
+{
+	return gameObjects;
+}

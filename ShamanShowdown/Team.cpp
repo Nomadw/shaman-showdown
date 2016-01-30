@@ -25,8 +25,5 @@ GameObject * Team::BuildShaman()
 {
 	GameObject * object = new GameObject();
 	characters[0] = object;
-	Map * map = new Map();
-	map->loadMap("fuck");
-	object->attachComponent(map);
 	return object;
 }
