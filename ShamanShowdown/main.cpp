@@ -140,7 +140,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	renderer->loadTexture("Textures/shaman red_left_1.tga", "rl1");
 	renderer->loadTexture("Textures/shaman red_right_1.tga", "rr1");
 
-//	renderer->loadTexture("Textures/hud.tga", "hud");
+	renderer->loadTexture("Textures/hud.tga", "hud");
 
 	float deltaTime = 0;
 

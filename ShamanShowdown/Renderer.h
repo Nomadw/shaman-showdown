@@ -14,8 +14,10 @@ public:
 	~Renderer();
 	void createQuad();
 	void draw(int textureID, float x, float y, float size);
+	void draw(int textureID, float x, float y);
 	int loadTexture(char * fileName, char * name);
 	vector<Texture *> textures;
+	
 	int getTexture(char * name);
 	RENDER_PASS currentPass;
 private:
