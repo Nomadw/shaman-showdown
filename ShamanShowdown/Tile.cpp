@@ -33,3 +33,23 @@ void Tile::isWalkable(bool walkable)
 {
 	this->walkable = walkable;
 }
+
+int Tile::getWidth()
+{
+	return width;
+}
+
+void Tile::setWidth(int newWidth)
+{
+	width = newWidth;
+}
+
+int Tile::getHeight()
+{
+	return height;
+}
+
+void Tile::setHeight(int newHeight)
+{
+	height = newHeight;
+}

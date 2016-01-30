@@ -13,9 +13,9 @@ void TileCollection::pushColumn(TileColumn column)
 	this->push_back(column);
 }
 
-TileColumn TileCollection::getColumn(int index)
+TileColumn* TileCollection::getColumn(int index)
 {
-	return this->at(index);
+	return &this->at(index);
 }
 
 TileColumn& TileCollection::operator[](int x)
@@ -23,7 +23,7 @@ TileColumn& TileCollection::operator[](int x)
 	return this->at(x);
 }
 
-int TileCollection::size()
+int TileCollection::length()
 {
 	return this->size();
 }

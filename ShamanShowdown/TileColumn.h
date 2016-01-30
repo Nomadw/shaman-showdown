@@ -2,7 +2,7 @@
 #include "Tile.h"
 #include <vector>
 
-class TileColumn : std::vector<Tile>
+class TileColumn : public std::vector<Tile>
 {
 public:
 	TileColumn();
@@ -10,6 +10,6 @@ public:
 
 	Tile& operator[](int y);
 
-	int size();
+	int length();
 };
 

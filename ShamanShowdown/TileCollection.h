@@ -9,10 +9,10 @@ public:
 	~TileCollection();
 
 	void pushColumn(TileColumn column);
-	TileColumn getColumn(int index);
+	TileColumn* getColumn(int index);
 
 	TileColumn& operator[](int x);
 
-	int size();
+	int length();
 };
 

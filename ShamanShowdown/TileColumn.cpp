@@ -17,7 +17,7 @@ Tile& TileColumn::operator[](int y)
 	return this->at(y);
 }
 
-int TileColumn::size()
+int TileColumn::length()
 {
 	return this->size();
 }

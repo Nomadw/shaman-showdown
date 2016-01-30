@@ -85,6 +85,7 @@
     <ClInclude Include="GameComponent.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="Globals.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Maths.h" />
     <ClInclude Include="Renderer.h" />
@@ -96,6 +97,9 @@
     <ClInclude Include="TileColumn.h" />
     <ClInclude Include="TransformComponent.h" />
     <ClInclude Include="Vector3.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="test.tga" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

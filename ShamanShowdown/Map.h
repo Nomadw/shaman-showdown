@@ -1,4 +1,5 @@
 #pragma once
+#include "Globals.h"
 #include "Tile.h"
 #include "TileCollection.h"
 #include <vector>
@@ -18,7 +19,7 @@ public:
 
 	void loadMap(char* fileLocation);
 
-	void draw();
+	void draw(Renderer* renderer);
 private:
 	TileCollection tiles;
 };
