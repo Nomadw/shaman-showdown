@@ -2,6 +2,7 @@
 #include "Controls.h"
 #include "TransformComponent.h"
 #include "GameObject.h"
+#include "Map.h"
 
 #pragma region private prototypes
 void rightKey(TransformComponent* transform);
@@ -10,8 +11,12 @@ void downKey(TransformComponent* transform);
 void upKey(TransformComponent* transform);
 #pragma endregion
 
-InputComponent::InputComponent()
+InputComponent::InputComponent(WPARAM up, WPARAM left, WPARAM down, WPARAM right)
 {
+	chars[KEYS_UP] = up;
+	chars[KEYS_DOWN] = down;
+	chars[KEYS_LEFT] = left;
+	chars[KEYS_RIGHT] = right;
 }
 
 
@@ -25,19 +30,19 @@ void InputComponent::update(GameState * state, float deltaTime, Controls* contro
 
 	float moveX = 0, moveY = 0;
 
-	if (controls->isKeyPressed('W'))
+	if (controls->isKeyPressed(chars[KEYS_UP]))
 	{
 		moveY += -1;
 	}
-	if (controls->isKeyPressed('A'))
+	if (controls->isKeyPressed(chars[KEYS_LEFT]))
 	{
 		moveX += -1;
 	}
-	if (controls->isKeyPressed('S'))
+	if (controls->isKeyPressed(chars[KEYS_DOWN]))
 	{
 		moveY += 1;
 	}
-	if (controls->isKeyPressed('D'))
+	if (controls->isKeyPressed(chars[KEYS_RIGHT]))
 	{
 		moveX += 1;
 	}
@@ -45,8 +50,21 @@ void InputComponent::update(GameState * state, float deltaTime, Controls* contro
 	float hypotenuse = sqrt(pow(moveX, 2) + pow(moveY, 2));
 	if (hypotenuse > 0)
 	{
-		transform->Translation().getX() += (moveX / hypotenuse) * deltaTime;
-		transform->Translation().getY() += (moveY / hypotenuse) * deltaTime;
+		moveX = (moveX / hypotenuse) * deltaTime;
+		moveY = (moveY / hypotenuse) * deltaTime;
+
+		Map* map = static_cast<Map*>(state->FindComponentInObject<Map>());
+		if (map != NULL)
+		{
+			int i = 12;
+		}
+		int posx = transform->Translation().getX() + moveX;
+		int posy = transform->Translation().getY() + moveY;
+		if (map->getTiles()[posx][posy].isWalkable())
+		{
+			transform->Translation().setX(transform->Translation().getX() + moveX);
+			transform->Translation().setY(transform->Translation().getY() + moveY);
+		}
 	}
 }
 

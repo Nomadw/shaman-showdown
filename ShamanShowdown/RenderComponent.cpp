@@ -15,8 +15,8 @@ RenderComponent::~RenderComponent()
 
 void RenderComponent::update(GameState * state, float deltaTime, Controls* controls, GameObject * object)
 {
-	x = object->transform->Translation().getX();
-	y = object->transform->Translation().getY();
+	x = object->transform->Translation().getX()-0.5f;
+	y = object->transform->Translation().getY()-1.0f;
 	size = 1.0f * 64.0f;
 }
 

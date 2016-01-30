@@ -33,7 +33,7 @@ private:
 
 #pragma region Functions
 public:
-	GameObject * BuildWarrior();
+	GameObject * BuildWarrior(int teamNumber);
 	GameObject * BuildShaman();
 private:
 #pragma endregion

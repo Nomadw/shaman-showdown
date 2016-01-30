@@ -35,6 +35,19 @@ public:
 	void update(float deltaTime, Controls* controls);
 	void render(Renderer* renderer);
 	void addGameObject(GameObject* object);
+	template<typename T> GameComponent* FindComponentInObject()
+	{
+		for each(GameObject* obj in gameObjects)
+		{
+			GameComponent* comp = obj->getComponent<T>();
+			if (comp != NULL)
+			{
+				return comp;
+			}
+		}
+		return (reinterpret_cast<GameComponent*>(NULL));
+	}
+
 private:
 #pragma endregion
 	void Initialize();

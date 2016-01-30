@@ -119,7 +119,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	state->addGameObject(theMap);
 
 	renderer->loadTexture("test.tga", "missile1");
-	renderer->loadTexture("TEST2.tga", "missile2");
+	renderer->loadTexture("test.tga", "missile1");
 	//renderer->loadTexture("shaman-red.tga", "text2");
 	int id = renderer->getTexture("missile1");
 	float deltaTime = 0;

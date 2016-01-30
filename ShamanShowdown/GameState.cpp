@@ -19,10 +19,10 @@ void GameState::Initialize()
 {
 	teams.emplace_back();
 	gameObjects.push_back(teams[0].BuildShaman());
-	gameObjects.push_back(teams[0].BuildWarrior());
+	gameObjects.push_back(teams[0].BuildWarrior(0));
 	teams.emplace_back();
 	gameObjects.push_back(teams[1].BuildShaman());
-	gameObjects.push_back(teams[1].BuildWarrior());
+	gameObjects.push_back(teams[1].BuildWarrior(1));
 }
 
 
