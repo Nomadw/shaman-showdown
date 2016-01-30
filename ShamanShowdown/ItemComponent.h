@@ -10,7 +10,7 @@ class GameObject;
 class Renderer;
 
 using namespace std;
-class ItemComponent : public ItemComponent
+class ItemComponent : public GameComponent
 {
 #pragma region Variables
 public:

@@ -113,7 +113,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 
 	GameObject* theMap = new GameObject();
 
-	Map * map = new Map();
+	Map * map = new Map(state);
 	map->loadMap("map1.gmp");
 	theMap->attachComponent(map);
 
@@ -122,7 +122,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	renderer->loadTexture("Textures/wall.tga", "wall");
 	renderer->loadTexture("Textures/grass-flowers.tga", "grass");
 	renderer->loadTexture("Textures/tree.tga", "tree");
-	renderer->loadTexture("Textures/shaman red_front_1.tga", "shrub");
+	renderer->loadTexture("Textures/shrub.tga", "shrub");
 	renderer->loadTexture("Textures/stone.tga", "stone");
 	renderer->loadTexture("Textures/mud.tga", "mud");
 	renderer->loadTexture("Textures/henge-lr.tga", "henge-lr");

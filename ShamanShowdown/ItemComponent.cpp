@@ -7,7 +7,7 @@
 
 ItemComponent::ItemComponent(int textureID)
 {
-
+	texture = textureID;
 }
 
 

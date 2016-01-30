@@ -4,7 +4,7 @@
 #include <streambuf>
 #include "GameState.h"
 #include "ObjectComponent.h"
-
+#include "ItemComponent.h"
 using namespace std;
 
 Map::Map(GameState* gameState)
@@ -148,17 +148,23 @@ void Map::loadMap(char* fileLocation)
 			tmpTile.isRitualZone(ritualZone);
 
 			//Create the GameObjects
-			GameObject* gsObj = new GameObject();
-			gsObj->attachComponent(new ObjectComponent(objID));
-			gameState->addGameObject(gsObj);
+			if (objID >= 0)
+			{
+				GameObject* gsObj = new GameObject();
+				gsObj->attachComponent(new ObjectComponent(objID));
+				gameState->addGameObject(gsObj);
+			}
 
-			GameObject* gsItem = new GameObject();
-			gsItem->attachComponent(new ObjectComponent(itemID));
-			gameState->addGameObject(gsItem);
+			if (itemID >= 0)
+			{
+				GameObject* gsItem = new GameObject();
+				gsItem->attachComponent(new ItemComponent(itemID));
+				gameState->addGameObject(gsItem);
+			}
 
-			GameObject* gsSuper = new GameObject();
-			gsSuper->attachComponent(new ObjectComponent(superObjID));
-			gameState->addGameObject(gsSuper);
+			//GameObject* gsSuper = new GameObject();
+			//gsSuper->attachComponent(new ObjectComponent(superObjID));
+			//gameState->addGameObject(gsSuper);
 
 
 			tmpCol.push_back(tmpTile);
@@ -170,13 +176,16 @@ void Map::loadMap(char* fileLocation)
 
 void Map::render(Renderer* renderer)
 {
-	for (int i = 0; i < tiles.length(); i++)
+	if (renderer->currentPass == RENDER_PASS_GROUND)
 	{
-		for (int j = 0; j < tiles[i].length(); j++)
+		for (int i = 0; i < tiles.length(); i++)
 		{
-			Tile* tile = &tiles[i][j];
+			for (int j = 0; j < tiles[i].length(); j++)
+			{
+				Tile* tile = &tiles[i][j];
 
-			renderer->draw(tile->getTexture() >= 0 ? tile->getTexture() : 0, (i + 0.5f) * 64.0f, (j + 0.5f) * 64.0f, 1.0f * 64.0f);
+				renderer->draw(tile->getTexture() >= 0 ? tile->getTexture() : 0, (i + 0.5f) * 64.0f, (j + 0.5f) * 64.0f, 1.0f * 64.0f);
+			}
 		}
 	}
 }

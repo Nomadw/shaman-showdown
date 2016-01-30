@@ -7,7 +7,7 @@
 
 ObjectComponent::ObjectComponent(int textureID)
 {
-
+	texture = textureID;
 }
 
 
