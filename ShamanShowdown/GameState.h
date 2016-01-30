@@ -1,17 +1,16 @@
 #pragma once
 //STL Includes
-#include <list>
+#include <vector>
 
 //Custom Includes
-#include "GameObject.h"
+#include "Team.h"
 using namespace std;
 class GameState
 {
 #pragma region Variables
 public:
-	list<GameObject> gameObjects;
 private:
-
+	vector<Team> teams;
 #pragma endregion
 
 #pragma region Constructors/Destuctors
@@ -22,15 +21,16 @@ public:
 
 #pragma region Mutators
 public:
-	
+	Team getTeam(int index);
 private:
 #pragma endregion
 
 #pragma region Functions
 public:
-	
+	void update(float deltaTime);
+	void render();
 private:
 #pragma endregion
-
+	void Initialize();
 private:
 };
