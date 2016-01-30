@@ -30,7 +30,7 @@ void Renderer::createQuad()
 			verticies[(((x * 2) + y) * 4) + 0] = x - 0.5f;
 			verticies[(((x * 2) + y) * 4) + 1] = y - 0.5f;
 			verticies[(((x * 2) + y) * 4) + 2] = x;
-			verticies[(((x * 2) + y) * 4) + 3] = y;
+			verticies[(((x * 2) + y) * 4) + 3] = 1-y;
 		}
 	}
 	indicies = new unsigned int[6];
@@ -76,24 +76,45 @@ int Renderer::loadTexture(char * fileName, char * name)
 	file.read(data, size);
 	short int width = *(short int*)(data + 12);
 	short int height = *(short int*)(data + 14);
+	char pixelDepth = data[16];
 	Texture * texture = new Texture();
 	texture->name = name;
 	char * colourData = data + 18;
-	for (int i = 0; i < width * height; i++)
+	if (pixelDepth == 32)
 	{
-		char temp = colourData[i * 4];
-		colourData[i * 4] = colourData[(i * 4) + 2];
-		colourData[(i * 4) + 2] = temp;
+		for (int i = 0; i < width * height; i++)
+		{
+			char temp = colourData[i * 4];
+			colourData[i * 4] = colourData[(i * 4) + 2];
+			colourData[(i * 4) + 2] = temp;
+		}
+	}
+	if (pixelDepth == 24)
+	{
+		for (int i = 0; i < width * height; i++)
+		{
+			char temp = colourData[i * 3];
+			colourData[i * 3] = colourData[(i * 3) + 2];
+			colourData[(i * 3) + 2] = temp;
+		}
 	}
 	glGenTextures(1, &(texture->ID));
 	glBindTexture(GL_TEXTURE_2D, texture->ID);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, colourData);
+	if (pixelDepth == 32) 
+	{
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, colourData);
+	}
+	if (pixelDepth == 24)
+	{
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, colourData);
+	}
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	textures.push_back(texture);
-	glBindTexture(GL_TEXTURE_2D,0);
+	//glBindTexture(GL_TEXTURE_2D,0);
+	delete [] data;
 	return texture->ID;
 }
 

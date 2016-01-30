@@ -17,8 +17,8 @@
 // some basic numbers to hold the position and size of the window
 #define WIDTH		1280
 #define HEIGHT		720
-#define TOPLEFTX	50
-#define TOPLEFTY	50
+#define TOPLEFTX	0
+#define TOPLEFTY	0
 
 // include the opengl and glu libraries
 #pragma comment(lib, "opengl32.lib")	
@@ -122,20 +122,20 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	renderer->loadTexture("Textures/wall.tga", "wall");
 	renderer->loadTexture("Textures/grass-flowers.tga", "grass");
 	renderer->loadTexture("Textures/tree.tga", "tree");
-	renderer->loadTexture("Textures/shrub.tga", "shrub");
+	renderer->loadTexture("Textures/shaman red_front_1.tga", "shrub");
 	renderer->loadTexture("Textures/stone.tga", "stone");
 	renderer->loadTexture("Textures/mud.tga", "mud");
 	renderer->loadTexture("Textures/henge-lr.tga", "henge-lr");
 	renderer->loadTexture("Textures/henge-tb.tga", "henge-tb");
 	renderer->loadTexture("Textures/henge-tlbr.tga", "henge-tlbr");
 	renderer->loadTexture("Textures/henge-trbl.tga", "henge-trbl");
-	renderer->loadTexture("Textures/river-horizonal.tga", "river-horizontal");
+	renderer->loadTexture("Textures/river-horizontal.tga", "river-horizontal");
 	renderer->loadTexture("Textures/river-vertical.tga", "river-vertical");
 	renderer->loadTexture("Textures/river-tesselate.tga", "river-tesselate");
 	renderer->loadTexture("Textures/bridge-vert.tga", "bridge-vert");
 	renderer->loadTexture("Textures/bridge-horz.tga", "bridge-horz");
 	renderer->loadTexture("Textures/tree-rocks.tga", "tree-rocks");
-	renderer->loadTexture("Textures/hud.tga", "hud");
+//	renderer->loadTexture("Textures/hud.tga", "hud");
 
 	float deltaTime = 0;
 

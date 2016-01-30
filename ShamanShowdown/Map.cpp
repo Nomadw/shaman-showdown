@@ -159,7 +159,7 @@ void Map::render(Renderer* renderer)
 		{
 			Tile* tile = &tiles[i][j];
 
-			renderer->draw(tile->getTexture() >= 0 ? tile->getTexture() : 0, i * 64.0f, j * 64.0f, 1.0f * 64.0f);
+			renderer->draw(tile->getTexture() >= 0 ? tile->getTexture() : 0, (i + 0.5f) * 64.0f, (j + 0.5f) * 64.0f, 1.0f * 64.0f);
 		}
 	}
 }
