@@ -23,6 +23,7 @@
     <ClCompile Include="PhysicsComponent.cpp" />
     <ClCompile Include="RenderComponent.cpp" />
     <ClCompile Include="Team.cpp" />
+    <ClCompile Include="ObjectComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controls.h" />
@@ -49,6 +50,7 @@
     <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="RenderComponent.h" />
     <ClInclude Include="Team.h" />
+    <ClInclude Include="ObjectComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="test.tga" />

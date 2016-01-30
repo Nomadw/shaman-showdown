@@ -58,12 +58,23 @@ void InputComponent::update(GameState * state, float deltaTime, Controls* contro
 		{
 			int i = 12;
 		}
-		int posx = transform->Translation().getX() + moveX;
-		int posy = transform->Translation().getY() + moveY;
-		if (map->getTiles()[posx][posy].isWalkable())
+
 		{
-			transform->Translation().setX(transform->Translation().getX() + moveX);
-			transform->Translation().setY(transform->Translation().getY() + moveY);
+			int posx = transform->Translation().getX() + moveX;
+			int posy = transform->Translation().getY();
+			if (map->getTiles()[posx][posy].isWalkable())
+			{
+				transform->Translation().setX(transform->Translation().getX() + moveX);
+			}
+		}
+
+		{
+			int posx = transform->Translation().getX();
+			int posy = transform->Translation().getY() + moveY;
+			if (map->getTiles()[posx][posy].isWalkable())
+			{
+				transform->Translation().setY(transform->Translation().getY() + moveY);
+			}
 		}
 	}
 }

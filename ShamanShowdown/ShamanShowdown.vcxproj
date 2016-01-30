@@ -77,6 +77,7 @@
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Maths.cpp" />
     <ClCompile Include="MeleeComonent.cpp" />
+    <ClCompile Include="ObjectComponent.cpp" />
     <ClCompile Include="PhysicsComponent.cpp" />
     <ClCompile Include="RenderComponent.cpp" />
     <ClCompile Include="Renderer.cpp" />
@@ -103,6 +104,7 @@
     <ClInclude Include="MagicComponent.h" />
     <ClInclude Include="Maths.h" />
     <ClInclude Include="MeleeComponent.h" />
+    <ClInclude Include="ObjectComponent.h" />
     <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="RenderComponent.h" />
     <ClInclude Include="Team.h" />

@@ -40,33 +40,3 @@ void Vector3::setY(float value)
 {
 	this->y = value;
 }
-
-float& Vector3::operator[](int index)
-{
-	switch (index)
-	{
-	case 0:
-		return this->x;
-		break;
-	default:
-		return this->y;
-		break;
-	}
-};
-
-Vector3 Vector3::operator+=(Vector3 other)
-{
-	return Vector3(this->x + other.x, this->y + other.y);
-}
-Vector3 Vector3::operator-=(Vector3 other)
-{
-	return Vector3(this->x + other.x, this->y + other.y);
-}
-Vector3 Vector3::operator*=(float scalar)
-{
-	return Vector3(this->x * scalar, this->y * scalar);
-}
-Vector3 Vector3::operator/=(float scalar)
-{
-	return Vector3(this->x / scalar, this->y / scalar);
-}
