@@ -23,8 +23,8 @@ public:
 
 #pragma region Mutators
 public:
-	GameObject* GetShaman();
-	GameObject* GetWarrior();
+	inline GameObject* GetShaman() { return &characters[0]; }
+	inline GameObject* GetWarrior() { return &characters[1]; }
 private:
 #pragma endregion
 
@@ -32,7 +32,7 @@ private:
 public:
 
 private:
+	void BuildWarrior();
+	void BuildShaman();
 #pragma endregion
-
-private:
 };
