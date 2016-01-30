@@ -40,7 +40,7 @@ void Map::loadMap(char* fileLocation)
 	Tile tmpTile = Tile();
 	tmpTile.setTexture(0);
 
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 20; i++)
 	{
 		tiles.pushColumn(TileColumn());
 		for (int j = 0; j < 10; j++)
@@ -58,7 +58,7 @@ void Map::draw(Renderer* renderer)
 		{
 			Tile* tile = &tiles[i][j];
 
-			renderer->draw(tile->getTexture() >= 0 ? tile->getTexture() : 0, i, j, 1.0f);
+			renderer->draw(tile->getTexture() >= 0 ? tile->getTexture() : 0, i * 64.0f, j * 64.0f, 1.0f * 64.0f);
 		}
 	}
 }

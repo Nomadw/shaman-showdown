@@ -12,8 +12,8 @@
 #include <time.h>
 
 // some basic numbers to hold the position and size of the window
-#define WIDTH		800
-#define HEIGHT		600
+#define WIDTH		1280
+#define HEIGHT		720
 #define TOPLEFTX	50
 #define TOPLEFTY	50
 
@@ -57,7 +57,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 		TOPLEFTX + WIDTH,		// far right
 		TOPLEFTY + HEIGHT);	// far left
 
-	AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
+	AdjustWindowRect(&rect, (WS_OVERLAPPED | WS_MINIMIZEBOX | WS_SYSMENU) , false);
 
 	HWND myWindow = CreateWindow(TEXT("my window class name"),		// window class to use - in this case the one we created a minute ago
 		TEXT("OpenGL, No GLUT"),					// window title
@@ -71,6 +71,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	{
 		FatalAppExit(NULL, TEXT("CreateWindow() failed!"));
 	}
+
+	SetWindowLong(myWindow, GWL_STYLE, WS_POPUP | WS_MINIMIZEBOX);
+	SetWindowLong(myWindow, GWL_EXSTYLE, 0);
 
 	ShowWindow(myWindow, iCmdShow);
 
@@ -98,7 +101,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 
 	glMatrixMode(GL_PROJECTION);	// select the projection matrix, i.e. the one that controls the "camera"
 	glLoadIdentity();				// reset it
-	glOrtho(0, 10, 10, 0, -100, 100);
+	glOrtho(0, WIDTH, HEIGHT, 0, -100, 100);
 	glViewport(0, 0, WIDTH, HEIGHT);							// make the viewport cover the whole window
 	glClearColor(0.5, 0, 0, 0);								// set the colour used for clearing the 
 	glEnable(GL_BLEND);
@@ -138,7 +141,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 		}
 		if (controls.isKeyPressed(VK_ESCAPE)) 
 		{
-			runTime += deltaTime;
+			needToQuit = true;
 		}
 		draw(myDeviceContext, renderer);
 		clock_t endFrameTime = clock();
@@ -173,7 +176,7 @@ void draw(HDC deviceContext, Renderer * renderer)
 // this function is called when any events happen to our window
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
 {
-
+	
 	switch (message)
 	{	
 		// if they exited the window...	
