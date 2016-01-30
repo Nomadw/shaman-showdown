@@ -1,5 +1,6 @@
 #include "Team.h"
-
+#include "Controls.h"
+#include "GameState.h"
 
 Team::Team()
 {
@@ -22,5 +23,13 @@ void Team::BuildWarrior()
 
 void Team::BuildShaman()
 {
+
+}
+
+
+void Team::update(GameState * state, float deltaTime, Controls* controls)
+{
+	characters[0].update(state, deltaTime, controls);
+	characters[1].update(state, deltaTime, controls);
 
 }

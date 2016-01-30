@@ -4,6 +4,9 @@
 
 //Custom Includes
 #include "GameObject.h"
+class GameState;
+class Controls;
+
 using namespace std;
 class Team
 {
@@ -30,7 +33,7 @@ private:
 
 #pragma region Functions
 public:
-
+	void update(GameState * state, float deltaTime, Controls* controls);
 private:
 	void BuildWarrior();
 	void BuildShaman();

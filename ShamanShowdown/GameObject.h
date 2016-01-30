@@ -7,6 +7,9 @@
 
 using namespace std;
 
+class GameState;
+class Controls;
+
 class GameObject
 {
 #pragma region Variables
@@ -30,8 +33,10 @@ private:
 
 #pragma region Functions
 public:
-	void attachComponent(GameComponent* gameComponent); 
-	
+	void attachComponent(GameComponent* gameComponent);
+
+	void update(GameState * state, float deltaTime, Controls* controls);
+
 	template<typename T> GameComponent& getComponent()
 	{
 		int i = 0;

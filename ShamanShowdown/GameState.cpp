@@ -1,6 +1,5 @@
 #include "GameState.h"
 
-
 GameState::GameState()
 {
 	Initialize();
@@ -18,6 +17,23 @@ Team GameState::getTeam(int index)
 
 void GameState::Initialize()
 {
-	teams[0] = Team();
-	teams[1] = Team();
+	teams.emplace_back();
+	teams.emplace_back();
+}
+
+
+void GameState::update(float deltaTime, Controls* controls)
+{
+	for (int i = 0; i < 2; i++)
+	{
+		teams[i].update(this, deltaTime, controls);
+	}
+}
+
+void GameState::render(Renderer* renderer)
+{
+	for (int i = 0; i < 2; i++)
+	{
+
+	}
 }

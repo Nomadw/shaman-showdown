@@ -11,6 +11,8 @@
 
 #include <time.h>
 
+#include "GameState.h"
+
 // some basic numbers to hold the position and size of the window
 #define WIDTH		800
 #define HEIGHT		600
@@ -22,7 +24,7 @@
 #pragma comment(lib, "glu32.lib")
 
 Renderer* renderer;
-
+GameState * state;
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam);
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine, int iCmdShow);
@@ -105,7 +107,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	Controls controls;
 	renderer = new Renderer();
-
+	state = new GameState();
 	renderer->loadTexture("test.tga", "missile1");
 	int id = renderer->getTexture("missile1");
 	float deltaTime = 0;
@@ -140,6 +142,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 		{
 			runTime += deltaTime;
 		}
+		state->update(deltaTime, &controls);
+		state->render(renderer);
 		draw(myDeviceContext, renderer);
 		clock_t endFrameTime = clock();
 		deltaTime= (float)(endFrameTime - startFrameTime) / (float)CLOCKS_PER_SEC;

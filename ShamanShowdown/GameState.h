@@ -4,6 +4,8 @@
 
 //Custom Includes
 #include "Team.h"
+#include "Controls.h"
+#include "Renderer.h"
 using namespace std;
 class GameState
 {
@@ -27,8 +29,8 @@ private:
 
 #pragma region Functions
 public:
-	void update(float deltaTime);
-	void render();
+	void update(float deltaTime, Controls* controls);
+	void render(Renderer* renderer);
 private:
 #pragma endregion
 	void Initialize();
