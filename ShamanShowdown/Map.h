@@ -15,6 +15,8 @@ public:
 
 	void setTile(int x, int y, Tile value);
 	void setMap(TileCollection newMap);
+
+	void loadMap(char* fileLocation);
 private:
 	TileCollection tiles;
 };

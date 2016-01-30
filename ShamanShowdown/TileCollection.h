@@ -1,8 +1,6 @@
 #pragma once
-#include "Tile.h"
+#include "TileColumn.h"
 #include <vector>
-
-typedef std::vector<Tile> TileColumn;
 
 class TileCollection : std::vector<TileColumn>
 {
@@ -12,5 +10,7 @@ public:
 
 	void pushColumn(TileColumn column);
 	TileColumn getColumn(int index);
+
+	TileColumn& operator[](int x);
 };
 

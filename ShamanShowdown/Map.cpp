@@ -27,10 +27,15 @@ TileCollection Map::getTiles()
 
 void Map::setTile(int x, int y, Tile value)
 {
-	tiles[x][y] = value;
+	tiles.at(x).at(y) = value;
 }
 
 void Map::setMap(TileCollection newMap) 
 {
 	tiles = newMap;
+}
+
+void Map::loadMap(char* fileLocation)
+{
+
 }
