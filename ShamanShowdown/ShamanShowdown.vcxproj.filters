@@ -8,8 +8,6 @@
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Maths.cpp" />
     <ClCompile Include="Renderer.cpp" />
-    <ClCompile Include="RotationComponent.cpp" />
-    <ClCompile Include="ScaleComponent.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileCollection.cpp" />
@@ -25,8 +23,6 @@
     <ClInclude Include="Map.h" />
     <ClInclude Include="Maths.h" />
     <ClInclude Include="Renderer.h" />
-    <ClInclude Include="RotationComponent.h" />
-    <ClInclude Include="ScaleComponent.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileCollection.h" />
