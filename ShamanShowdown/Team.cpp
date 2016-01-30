@@ -26,8 +26,8 @@ GameObject * Team::BuildWarrior(int teamNumber)
 	int teamOffset = teamNumber * 8;
 	int typeOffset = 0;
 	characters[1]->attachComponent(new InputComponent(moveChars[teamOffset + typeOffset + 0], moveChars[teamOffset + typeOffset + 1], moveChars[teamOffset + typeOffset + 2], moveChars[teamOffset + typeOffset + 3]));
-	characters[1]->attachComponent(new RenderComponent(teamNumber == 1 ? 19 : 18));
-	characters[1]->transform->Translation() = Vector3(teamNumber == 1 ? 2 : 18, 2);
+	characters[1]->attachComponent(new RenderComponent(teamNumber == 0 ? 18 : 19));
+	characters[1]->transform->Translation() = Vector3(teamNumber == 0 ? 18 : 2, 2);
 
 	return object;
 }
@@ -41,8 +41,8 @@ GameObject * Team::BuildShaman(int teamNumber)
 	int typeOffset = 4;
 	characters[0]->attachComponent(new InputComponent(moveChars[teamOffset + typeOffset + 0], moveChars[teamOffset + typeOffset + 1], moveChars[teamOffset + typeOffset + 2], moveChars[teamOffset + typeOffset + 3]));
 
-	characters[0]->attachComponent(new RenderComponent(teamNumber == 0 ? 19 : 18));
-	characters[0]->transform->Translation() = Vector3(teamNumber == 0 ? 2 : 18, 9);
+	characters[0]->attachComponent(new RenderComponent(teamNumber == 0 ? 18 : 19));
+	characters[0]->transform->Translation() = Vector3(teamNumber == 0 ? 18 : 2, 9);
 
 	return object;
 }
