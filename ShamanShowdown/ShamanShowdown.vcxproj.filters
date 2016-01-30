@@ -137,6 +137,12 @@
     <Image Include="Textures\shaman red_back_2.tga">
       <Filter>Textures</Filter>
     </Image>
+    <Image Include="Textures\healtjficlnutdshit.tga">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\HUDYOURMUDDA.tga">
+      <Filter>Textures</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="map1.gmp" />
