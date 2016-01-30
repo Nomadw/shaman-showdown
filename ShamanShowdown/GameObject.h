@@ -36,6 +36,7 @@ public:
 	void attachComponent(GameComponent* gameComponent);
 
 	void update(GameState * state, float deltaTime, Controls* controls);
+	void render(Renderer * renderer);
 
 	template<typename T> GameComponent& getComponent()
 	{

@@ -15,7 +15,7 @@ class Team
 public:
 	
 private:
-	GameObject characters[2];
+	GameObject* characters[2];
 #pragma endregion
 
 #pragma region Constructors/Destuctors
@@ -26,16 +26,15 @@ public:
 
 #pragma region Mutators
 public:
-	inline GameObject* GetShaman() { return &characters[0]; }
-	inline GameObject* GetWarrior() { return &characters[1]; }
+	inline GameObject* GetShaman() { return characters[0]; }
+	inline GameObject* GetWarrior() { return characters[1]; }
 private:
 #pragma endregion
 
 #pragma region Functions
 public:
-	void update(GameState * state, float deltaTime, Controls* controls);
+	GameObject * BuildWarrior();
+	GameObject * BuildShaman();
 private:
-	void BuildWarrior();
-	void BuildShaman();
 #pragma endregion
 };

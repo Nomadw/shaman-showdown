@@ -2,9 +2,12 @@
 #include "Globals.h"
 #include "Tile.h"
 #include "TileCollection.h"
+#include "GameComponent.h"
+#include "GameObject.h"
+#include "GameState.h"
 #include <vector>
 
-class Map
+class Map : public GameComponent
 {
 public:
 	Map();
@@ -19,7 +22,8 @@ public:
 
 	void loadMap(char* fileLocation);
 
-	void draw(Renderer* renderer);
+	void render(Renderer* renderer);
+	void update(GameState * state, float deltaTime, Controls* controls, GameObject * object){}
 private:
 	TileCollection tiles;
 };
