@@ -6,6 +6,7 @@
 #include "TeamMemberComponent.h"
 #include "Team.h"
 #include "GameState.h"
+#include "HealthComponent.h"
 
 MeleeComponent::MeleeComponent()
 {
@@ -61,7 +62,7 @@ void MeleeComponent::update(GameState * state, float deltaTime, Controls * contr
 		{
 			if (stab.Magnitude(team->characters[i]->transform->Translation()) < 0.25f)
 			{
-				bool fuck = true;
+				((HealthComponent*)team->characters[i]->getComponent<HealthComponent>())->health -= deltaTime;
 			}
 		}
 	}

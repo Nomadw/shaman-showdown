@@ -7,6 +7,7 @@ class HealthComponent : public GameComponent
 {
 #pragma region Variables
 public:
+	float health;
 private:
 #pragma endregion
 
@@ -24,8 +25,8 @@ private:
 #pragma region Functions
 public:
 	//Overriders for the abstract base GameComponent
-	void update();
-	void render();
+	void render(Renderer * renderer){}
+	void update(GameState * state, float deltaTime, Controls* controls, GameObject * object){}
 private:
 #pragma endregion
 
