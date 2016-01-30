@@ -18,7 +18,6 @@ Team::~Team()
 {
 }
 
-
 GameObject * Team::BuildWarrior(int teamNumber)
 {
 	GameObject * object = new GameObject();

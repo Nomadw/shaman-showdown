@@ -53,6 +53,7 @@ public:
 		return (reinterpret_cast<GameComponent*>(NULL));
 	}
 
+	float GetDistanceTo(TransformComponent transform);
 private:
 #pragma endregion
 
