@@ -88,6 +88,7 @@
     <ClCompile Include="TileCollection.cpp" />
     <ClCompile Include="TileColumn.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
+    <ClCompile Include="UserInterface.cpp" />
     <ClCompile Include="Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +117,7 @@
     <ClInclude Include="TileCollection.h" />
     <ClInclude Include="TileColumn.h" />
     <ClInclude Include="TransformComponent.h" />
+    <ClInclude Include="UserInterface.h" />
     <ClInclude Include="Vector3.h" />
   </ItemGroup>
   <ItemGroup>

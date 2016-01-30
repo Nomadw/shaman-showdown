@@ -64,6 +64,29 @@ void Renderer::draw(int textureID, float x, float y, float size)
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
+void Renderer::draw(int textureID, float x, float y)
+{
+	glBindTexture(GL_TEXTURE_2D, textures[textureID]->ID);
+	glEnableClientState(GL_VERTEX_ARRAY);
+	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+	glEnable(GL_TEXTURE_2D);
+	glMatrixMode(GL_MODELVIEW);
+	glPushMatrix();
+
+	glLoadIdentity();
+	glTranslatef(x, y, 0);
+	glScalef(x, y, 1);
+	glVertexPointer(2, GL_FLOAT, 4 * sizeof(float), verticies);
+	glTexCoordPointer(2, GL_FLOAT, 4 * sizeof(float), verticies + 2);
+	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, indicies);
+
+	glPopMatrix();
+
+	glDisableClientState(GL_VERTEX_ARRAY);
+	glBindTexture(GL_TEXTURE_2D, 0);
+}
+
+
 int Renderer::loadTexture(char * fileName, char * name)
 {
 	char * data;
