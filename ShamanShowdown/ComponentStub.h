@@ -1,0 +1,8 @@
+#include "HealthComponent.h"
+#include "InputComponent.h"
+#include "InventoryComponent.h"
+#include "MagicComponent.h"
+#include "MeleeComponent.h"
+#include "PhysicsComponent.h"
+#include "RenderComponent.h"
+#include "TransformComponent.h"
