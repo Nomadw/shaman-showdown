@@ -52,5 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="test.tga" />
+    <Image Include="shaman-red.tga" />
+    <Image Include="TEST2.tga" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="map1.gmp" />
   </ItemGroup>
 </Project>

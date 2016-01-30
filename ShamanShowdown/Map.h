@@ -7,6 +7,7 @@
 #include "GameState.h"
 #include <vector>
 
+
 class Map : public GameComponent
 {
 public:
@@ -26,5 +27,6 @@ public:
 	void update(GameState * state, float deltaTime, Controls* controls, GameObject * object){}
 private:
 	TileCollection tiles;
+	bool to_bool(string const& s);
 };
 

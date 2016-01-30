@@ -26,6 +26,7 @@ public:
 #pragma region Mutators
 public:
 	Team getTeam(int index);
+	vector<GameObject*> getGameObjects();
 private:
 #pragma endregion
 
@@ -33,6 +34,7 @@ private:
 public:
 	void update(float deltaTime, Controls* controls);
 	void render(Renderer* renderer);
+	void addGameObject(GameObject* object);
 private:
 #pragma endregion
 	void Initialize();
