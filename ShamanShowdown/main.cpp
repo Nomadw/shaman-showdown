@@ -1,4 +1,4 @@
-#pragma once
+ #pragma once
 
 #include <windows.h>	// need to be able to create windows etc
 #include <gl/gl.h>		// opengl header file

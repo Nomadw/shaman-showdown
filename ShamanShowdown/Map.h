@@ -1,8 +1,7 @@
 #pragma once
 #include "Tile.h"
+#include "TileCollection.h"
 #include <vector>
-
-typedef std::vector<std::vector<Tile>> TileCollection;
 
 class Map
 {
