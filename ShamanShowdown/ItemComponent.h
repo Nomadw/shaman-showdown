@@ -9,7 +9,7 @@ class Controls;
 class GameObject;
 class Renderer;
 
-enum Items { missle };
+enum Items { MISSLE, SLOW_DOWN, SUPER_SPEED, FREEZE, INVERT, BOMB };
 
 using namespace std;
 class ItemComponent : public GameComponent
