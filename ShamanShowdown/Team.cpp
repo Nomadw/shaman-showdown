@@ -30,7 +30,7 @@ GameObject * Team::BuildWarrior(int teamNumber)
 	int teamOffset = teamNumber * 8;
 	int typeOffset = 0;
 	characters[1]->attachComponent(new InputComponent(moveChars[teamOffset + typeOffset + 0], moveChars[teamOffset + typeOffset + 1], moveChars[teamOffset + typeOffset + 2], moveChars[teamOffset + typeOffset + 3], 1.3f));
-	characters[1]->attachComponent(new RenderComponent(teamNumber == 0 ? 18 : 19));
+	characters[1]->attachComponent(new RenderComponent(teamNumber == 0 ? 32 : 48));
 	characters[1]->attachComponent(new MeleeComponent());
 	characters[1]->attachComponent(new TeamMemberComponent(teamNumber));
 	characters[1]->attachComponent(new HealthComponent(5));
@@ -49,7 +49,7 @@ GameObject * Team::BuildShaman(int teamNumber)
 	characters[0]->attachComponent(new InputComponent(moveChars[teamOffset + typeOffset + 0], moveChars[teamOffset + typeOffset + 1], moveChars[teamOffset + typeOffset + 2], moveChars[teamOffset + typeOffset + 3], 2.0f));
 	characters[0]->attachComponent(new TeamMemberComponent(teamNumber));
 	characters[0]->attachComponent(new HealthComponent(15));
-	characters[0]->attachComponent(new RenderComponent(teamNumber == 0 ? 18 : 19));
+	characters[0]->attachComponent(new RenderComponent(teamNumber == 0 ? 22 : 38));
 	characters[0]->transform->Translation() = Vector3(teamNumber == 0 ? 18 : 2, 9);
 	characters[0]->attachComponent(new InventoryComponent());
 	characters[0]->attachComponent(new EffectsComponent());

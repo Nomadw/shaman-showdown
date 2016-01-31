@@ -41,7 +41,7 @@ void ItemSpawner::update(GameState * state, float deltaTime, Controls * controls
 	if (timeOut < 0) {
 		timeOut = delay;
 		GameObject * item = new GameObject();
-		item->attachComponent(new ItemComponent(25, itemType));
+		item->attachComponent(new ItemComponent(21, itemType));
 		state->addGameObject(item);
 		item->transform->Translation().setX((rand() % 27) + 2);
 		item->transform->Translation().setY((rand() % 14) + 2);

@@ -117,18 +117,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	renderer = new Renderer();
 	state = new GameState();
 
-	GameObject* theMap = new GameObject();
-
-	UserInterfaceComponent* ui = new UserInterfaceComponent();
-
-	MapComponent * map = new MapComponent(state);
-	map->loadMap("map1.gmp");
-	theMap->attachComponent(map);
-	theMap->attachComponent(new ItemSpawner(10.0f));
-	theMap->attachComponent(ui);
-
-	state->addGameObject(theMap);
-
 	renderer->loadTexture("Textures/wall.tga", "wall");
 	renderer->loadTexture("Textures/grass-flowers.tga", "grass");
 	renderer->loadTexture("Textures/tree.tga", "tree");
@@ -145,10 +133,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	renderer->loadTexture("Textures/bridge-vert.tga", "bridge-vert");
 	renderer->loadTexture("Textures/bridge-horz.tga", "bridge-horz");
 	renderer->loadTexture("Textures/tree-rocks.tga", "tree-rocks");
-	renderer->loadTexture("Textures/shaman red_back_1.tga", "rb1");
-	renderer->loadTexture("Textures/shaman red_front_1.tga", "rf1");
-	renderer->loadTexture("Textures/shaman red_left_1.tga", "rl1");
-	renderer->loadTexture("Textures/shaman red_right_1.tga", "rr1");
+	//from here
+
 
 	renderer->loadTexture("Textures/HUDYOURMUDDA.tga", "hud");
 	renderer->loadTexture("Textures/healtjficlnutdshit.tga", "heathbar");
@@ -158,32 +144,55 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 
 	renderer->loadTexture("Textures/Blue Powerup.tga", "redhealth");
 
+
+	renderer->loadTexture("Textures/shaman red_back_1.tga", "rb1");
+	renderer->loadTexture("Textures/shaman red_back_2.tga", "rb2");
+	renderer->loadTexture("Textures/shaman red_front_1.tga", "rf1");
+	renderer->loadTexture("Textures/shaman red_front_2.tga", "rf1");
+	renderer->loadTexture("Textures/shaman red_left_1.tga", "rl1");
+	renderer->loadTexture("Textures/shaman red_right_1.tga", "rr1");
+	renderer->loadTexture("Textures/shaman red_left_1.tga", "rl1");
+	renderer->loadTexture("Textures/shaman red_right_1.tga", "rr1");
+
 	renderer->loadTexture("Textures/warrior red_back_1.tga", "wrb1");
+	renderer->loadTexture("Textures/warrior red_back_2.tga", "wrb1");
+	renderer->loadTexture("Textures/warrior red_front_1.tga", "wrf1");
 	renderer->loadTexture("Textures/warrior red_front_2.tga", "wrf1");
 	renderer->loadTexture("Textures/warrior red_left_1.tga", "wrl1");
+	renderer->loadTexture("Textures/warrior red_left_1.tga", "wrl1");
 	renderer->loadTexture("Textures/warrior red_right_1.tga", "wrr1");
+	renderer->loadTexture("Textures/warrior red_right_1.tga", "wrr1");
+
 	renderer->loadTexture("Textures/shaman blue_back_1.tga", "rb1");
+	renderer->loadTexture("Textures/shaman blue_back_2.tga", "rb1");
 	renderer->loadTexture("Textures/shaman blue_front_1.tga", "rf1");
+	renderer->loadTexture("Textures/shaman blue_front_2.tga", "rf1");
 	renderer->loadTexture("Textures/shaman blue_left_1.tga", "rl1");
 	renderer->loadTexture("Textures/shaman blue_right_1.tga", "rr1");
+	renderer->loadTexture("Textures/shaman blue_left_1.tga", "rl1");
+	renderer->loadTexture("Textures/shaman blue_right_1.tga", "rr1");
+
 	renderer->loadTexture("Textures/warrior blue_back_1.tga", "wrb1");
+	renderer->loadTexture("Textures/warrior blue_back_2.tga", "wrb1");
+	renderer->loadTexture("Textures/warrior blue_front_1.tga", "wrf1");
 	renderer->loadTexture("Textures/warrior blue_front_2.tga", "wrf1");
 	renderer->loadTexture("Textures/warrior blue_left_1.tga", "wrl1");
+	renderer->loadTexture("Textures/warrior blue_left_1.tga", "wrl1");
+	renderer->loadTexture("Textures/warrior blue_right_1.tga", "wrr1");
 	renderer->loadTexture("Textures/warrior blue_right_1.tga", "wrr1");
 
-	float deltaTime = 0;
+	renderer->loadTexture("Textures/titlescreen.tga", "title");
 
-	GameObject * startItem = new GameObject();
-	startItem->attachComponent(new ItemComponent(25, MISSLE));
-	startItem->transform->Translation().setX(15);
-	startItem->transform->Translation().setY(5);
-	state->addGameObject(startItem);
+	renderer->loadTexture("Textures/gameoverred.tga", "gameoverred");
+	renderer->loadTexture("Textures/gameoverblue.tga", "gameoverblue");
 
 	startItem = new GameObject();
-	startItem->attachComponent(new ItemComponent(25, MISSLE));
+	startItem->attachComponent(new ItemComponent(21, MISSLE));
 	startItem->transform->Translation().setX(15);
 	startItem->transform->Translation().setY(12);
 	state->addGameObject(startItem);
+	float deltaTime = 0;
+	bool title = true;
 
 	while (!needToQuit)
 	{
@@ -213,6 +222,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 		{
 			needToQuit = true;
 		}
+		if (controls.isKeyPressed(VK_BACK))
+		{
+			delete state;
+			state = new GameState();
+		}
 		state->update(deltaTime, &controls);
 		
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);		// clear the screen and the depth buffer
@@ -228,10 +242,29 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 		state->render(renderer);
 		renderer->currentPass = RENDER_PASS_UI;
 		state->render(renderer);
+		if (state->getTeam(1).GetShaman() == NULL) 
+		{
+			renderer->draw(renderer->getTexture("gameoverred"), WIDTH / 2, HEIGHT / 2, WIDTH, HEIGHT);
+		}
+		if (state->getTeam(0).GetShaman() == NULL)
+		{
+			renderer->draw(renderer->getTexture("gameoverblue"), WIDTH / 2, HEIGHT / 2, WIDTH, HEIGHT);
+		}
+		if (title) 
+		{
+			renderer->draw(renderer->getTexture("title"), WIDTH / 2, HEIGHT / 2, WIDTH, HEIGHT);
+		}
 		SwapBuffers(myDeviceContext);									// put our triangles on the screen!
-
+		if (controls.isKeyPressed(VK_RETURN)) 
+		{
+			title = false;
+		}
 		clock_t endFrameTime = clock();
 		deltaTime = (float)(endFrameTime - startFrameTime) / (float)CLOCKS_PER_SEC;
+		if (title) 
+		{
+			deltaTime = 0;
+		}
 	}
 
 	//ChangeDisplaySettings(&oldMode, DM_COLOR);
