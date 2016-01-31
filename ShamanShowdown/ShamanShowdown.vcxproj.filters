@@ -25,6 +25,8 @@
     <ClCompile Include="ItemComponent.cpp" />
     <ClCompile Include="MagicProjectileComponent.cpp" />
     <ClCompile Include="TeamMemberComponent.cpp" />
+    <ClCompile Include="MissileUse.cpp" />
+    <ClCompile Include="ItemSpawner.cpp" />
     <ClCompile Include="UserInterfaceComponent.cpp" />
     <ClCompile Include="MapComponent.cpp" />
   </ItemGroup>
@@ -55,6 +57,8 @@
     <ClInclude Include="ItemComponent.h" />
     <ClInclude Include="MagicProjectileComponent.h" />
     <ClInclude Include="TeamMemberComponent.h" />
+    <ClInclude Include="MissileUse.h" />
+    <ClInclude Include="ItemSpawner.h" />
     <ClInclude Include="UserInterfaceComponent.h" />
     <ClInclude Include="MapComponent.h" />
   </ItemGroup>

@@ -15,6 +15,8 @@
 
 #include "GameState.h"
 #include "Vector3.h"
+#include "ItemSpawner.h"
+#include "TransformComponent.h"
 
 // some basic numbers to hold the position and size of the window
 #define WIDTH		2048
@@ -121,6 +123,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	MapComponent * map = new MapComponent(state);
 	map->loadMap("map1.gmp");
 	theMap->attachComponent(map);
+	theMap->attachComponent(new ItemSpawner(0.1f));
 	theMap->attachComponent(ui);
 
 	state->addGameObject(theMap);
@@ -151,7 +154,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	renderer->loadTexture("Textures/yourhudisshit.tga", "newhud");
 	renderer->loadTexture("Textures/warmpissyellow.tga", "yellowhealth");
 	renderer->loadTexture("Textures/angryshitred.tga", "redhealth");
-
 	float deltaTime = 0;
 
 	//map.loadMap("PLACEHOLDER");
