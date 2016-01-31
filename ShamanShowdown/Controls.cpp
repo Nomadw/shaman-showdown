@@ -60,6 +60,36 @@ bool Controls::isKeyReleased(WPARAM keyCode) // returns if the key was found in 
 
 bool Controls::isKeyPressed(WPARAM keyCode) // same implementation as the function above except its on the keys pressed list
 {
+	UINT nDevices;
+	PRAWINPUTDEVICELIST pRawInputDeviceList;
+	if (GetRawInputDeviceList(NULL, &nDevices, sizeof(RAWINPUTDEVICELIST)) != 0) {}
+	if ((pRawInputDeviceList = reinterpret_cast<PRAWINPUTDEVICELIST>(malloc(sizeof(RAWINPUTDEVICELIST) * nDevices))) == NULL) {}
+	if (GetRawInputDeviceList(pRawInputDeviceList, &nDevices, sizeof(RAWINPUTDEVICELIST)) == (sizeof(UINT)) - 1) {}
+	// do the job...
+
+	int fuck = sizeof(PRAWINPUTDEVICELIST);
+
+	for (int i = 0; i < nDevices; i++)
+	{
+		
+		auto device = pRawInputDeviceList[i];
+		UINT pcbSize;
+
+		if (device.dwType == RIM_TYPEKEYBOARD)
+		{
+			UINT size;
+
+			LPVOID data = NULL;
+
+			UINT test = GetRawInputDeviceInfo((HRAWINPUT)device.hDevice, RIDI_DEVICEINFO, data, &pcbSize);
+
+			int i = 12;
+		}
+	}
+
+	// after the job, free the RAWINPUTDEVICELIST
+	free(pRawInputDeviceList);
+
 	unsigned int i = 0;
 	bool found = false;
 	while (i< keysPressed.size() && !found)
