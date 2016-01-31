@@ -41,7 +41,7 @@ void InventoryComponent::useItem(GameState* state, int team, GameObject* object)
 
 		switch (nextItem)
 		{
-		case missle:
+		case MISSLE:
 			GameObject * missleObject = new GameObject();
 			missleObject->transform->Translation() = object->transform->Translation();
 			if (state->getTeam(1 - team).GetWarrior() != NULL)

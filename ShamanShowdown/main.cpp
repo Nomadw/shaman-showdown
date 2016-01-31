@@ -174,13 +174,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	float deltaTime = 0;
 
 	GameObject * startItem = new GameObject();
-	startItem->attachComponent(new ItemComponent(25, missle));
+	startItem->attachComponent(new ItemComponent(25, MISSLE));
 	startItem->transform->Translation().setX(15);
 	startItem->transform->Translation().setY(5);
 	state->addGameObject(startItem);
 
 	startItem = new GameObject();
-	startItem->attachComponent(new ItemComponent(25, missle));
+	startItem->attachComponent(new ItemComponent(25, MISSLE));
 	startItem->transform->Translation().setX(15);
 	startItem->transform->Translation().setY(12);
 	state->addGameObject(startItem);
