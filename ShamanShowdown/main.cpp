@@ -186,6 +186,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	renderer->loadTexture("Textures/gameoverred.tga", "gameoverred");
 	renderer->loadTexture("Textures/gameoverblue.tga", "gameoverblue");
 
+	renderer->loadTexture("Textures/Red Powerup.tga", "redpow");
+	renderer->loadTexture("Textures/Green Powerup.tga", "bluepow");
+
 	float deltaTime = 0;
 	bool title = true;
 
