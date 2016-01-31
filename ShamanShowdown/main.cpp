@@ -155,16 +155,19 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	renderer->loadTexture("Textures/yourhudisshit.tga", "newhud");
 	renderer->loadTexture("Textures/warmpissyellow.tga", "yellowhealth");
 	renderer->loadTexture("Textures/angryshitred.tga", "redhealth");
+
+	renderer->loadTexture("Textures/Blue Powerup.tga", "redhealth");
+
 	float deltaTime = 0;
 
 	GameObject * startItem = new GameObject();
-	startItem->attachComponent(new ItemComponent(23, missle));
+	startItem->attachComponent(new ItemComponent(25, missle));
 	startItem->transform->Translation().setX(15);
 	startItem->transform->Translation().setY(5);
 	state->addGameObject(startItem);
 
 	startItem = new GameObject();
-	startItem->attachComponent(new ItemComponent(23, missle));
+	startItem->attachComponent(new ItemComponent(25, missle));
 	startItem->transform->Translation().setX(15);
 	startItem->transform->Translation().setY(12);
 	state->addGameObject(startItem);
