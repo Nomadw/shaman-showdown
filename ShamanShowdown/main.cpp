@@ -186,11 +186,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	renderer->loadTexture("Textures/gameoverred.tga", "gameoverred");
 	renderer->loadTexture("Textures/gameoverblue.tga", "gameoverblue");
 
-	startItem = new GameObject();
-	startItem->attachComponent(new ItemComponent(21, MISSLE));
-	startItem->transform->Translation().setX(15);
-	startItem->transform->Translation().setY(12);
-	state->addGameObject(startItem);
 	float deltaTime = 0;
 	bool title = true;
 
