@@ -7,9 +7,9 @@
 
 #include "Controls.h"
 
-#include "Map.h"
+#include "MapComponent.h"
 
-#include "UserInterface.h"
+#include "UserInterfaceComponent.h"
 
 #include <time.h>
 
@@ -115,9 +115,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 
 	GameObject* theMap = new GameObject();
 
-	UserInterface* ui = new UserInterface();
+	UserInterfaceComponent* ui = new UserInterfaceComponent();
 
-	Map * map = new Map(state);
+	MapComponent * map = new MapComponent(state);
 	map->loadMap("map1.gmp");
 	theMap->attachComponent(map);
 	theMap->attachComponent(ui);

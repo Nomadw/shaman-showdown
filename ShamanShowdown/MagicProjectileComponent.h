@@ -7,10 +7,15 @@ class GameState;
 class Controls;
 class GameObject;
 class Renderer;
+class TransformComponent;
+class Vector3;
 
 using namespace std;
 class MagicProjectileComponent : public GameComponent
 {
+
+#pragma region Variables
+public:
 	enum SPELL_DIRECTION
 	{
 		SPELL_DIRECTION_UP,
@@ -18,18 +23,18 @@ class MagicProjectileComponent : public GameComponent
 		SPELL_DIRECTION_LEFT,
 		SPELL_DIRECTION_RIGHT
 	};
-
-#pragma region Variables
-public:
 private:
 	int texture;
 	SPELL_DIRECTION direction;
 	float spellSpeed;
+	TransformComponent* transform;
+	Vector3* dirVec;
+	bool should = true;
 #pragma endregion
 
 #pragma region Constructors/Destuctors
 public:
-	MagicProjectileComponent(int textureID, SPELL_DIRECTION direction, float spellSpeed);
+	MagicProjectileComponent(int textureID, SPELL_DIRECTION direction, float spellSpeed, TransformComponent* transform);
 	~MagicProjectileComponent();
 #pragma endregion
 

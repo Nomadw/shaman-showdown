@@ -37,6 +37,5 @@ void GameObject::render(Renderer * renderer)
 
 float GameObject::GetDistanceTo(TransformComponent transform)
 {
-	//return this->transform->
-	return NULL;
+	return this->transform->Translation().Magnitude(transform.Translation());
 }

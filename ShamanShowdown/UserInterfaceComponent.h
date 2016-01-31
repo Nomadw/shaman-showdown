@@ -1,11 +1,10 @@
 #pragma once
 #include "GameComponent.h"
-class UserInterface :
-	public GameComponent
+class UserInterfaceComponent : public GameComponent
 {
 public:
-	UserInterface();
-	~UserInterface();
+	UserInterfaceComponent();
+	~UserInterfaceComponent();
 
 	int health1;
 	int health2;

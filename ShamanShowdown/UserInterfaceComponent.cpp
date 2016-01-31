@@ -1,4 +1,4 @@
-#include "UserInterface.h"
+#include "UserInterfaceComponent.h"
 
 #include "GameObject.h"
 #include "Renderer.h"
@@ -9,7 +9,7 @@
 //#include alcohol
 //#include kim
 
-UserInterface::UserInterface()
+UserInterfaceComponent::UserInterfaceComponent()
 {
 	health1 = 0;
 	health2 = 0;
@@ -19,11 +19,11 @@ UserInterface::UserInterface()
 }
 
 
-UserInterface::~UserInterface()
+UserInterfaceComponent::~UserInterfaceComponent()
 {
 }
 
-void UserInterface::update(GameState * state, float deltaTime, Controls * controls, GameObject * object)
+void UserInterfaceComponent::update(GameState * state, float deltaTime, Controls * controls, GameObject * object)
 {
 	if (state->getTeam(0).GetShaman() != NULL)
 	{
@@ -43,9 +43,8 @@ void UserInterface::update(GameState * state, float deltaTime, Controls * contro
 	}
 }
 
-void UserInterface::render(Renderer * renderer)
+void UserInterfaceComponent::render(Renderer * renderer)
 {
-	
 	renderer->draw(21, 225 + (health1 / 2), 1075, (health1 * 2), 20); // Red shaman health
 	renderer->draw(21, 225 + (health2 / 2), 1125, (health2 * 2), 20); // Red warrior health
 	renderer->draw(21, 850 + (health3 / 2), 1075, (health3 * 2), 20); // Blue shaman health

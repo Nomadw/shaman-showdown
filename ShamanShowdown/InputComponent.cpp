@@ -2,8 +2,9 @@
 #include "Controls.h"
 #include "TransformComponent.h"
 #include "GameObject.h"
-#include "Map.h"
+#include "MapComponent.h"
 #include "RenderComponent.h"
+#include "MagicProjectileComponent.h"
 
 #pragma region private prototypes
 void rightKey(TransformComponent* transform);
@@ -26,7 +27,7 @@ InputComponent::~InputComponent()
 {
 }
 
-void InputComponent::update(GameState * state, float deltaTime, Controls* controls, GameObject * object)
+void InputComponent::update(GameState * state, float deltaTime, Controls* controls, GameObject* object)
 {
 	TransformComponent* transform = object->transform;
 	RenderComponent * render = (RenderComponent *)object->getComponent<RenderComponent>();
@@ -34,6 +35,7 @@ void InputComponent::update(GameState * state, float deltaTime, Controls* contro
 
 	if (controls->isKeyPressed(chars[KEYS_UP]))
 	{
+		object->attachComponent(new MagicProjectileComponent(21, MagicProjectileComponent::SPELL_DIRECTION_RIGHT, 1, transform));
 		moveY += -1;
 		render->texture = 16;
 		transform->Rotation().getY() = -1;
@@ -70,7 +72,7 @@ void InputComponent::update(GameState * state, float deltaTime, Controls* contro
 		moveX = (moveX / hypotenuse) * deltaTime * speed;
 		moveY = (moveY / hypotenuse) * deltaTime * speed;
 
-		Map* map = static_cast<Map*>(state->FindComponentInObject<Map>());
+		MapComponent* map = static_cast<MapComponent*>(state->FindComponentInObject<MapComponent>());
 		if (map != NULL)
 		{
 			int i = 12;

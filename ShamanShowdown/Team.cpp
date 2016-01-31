@@ -1,7 +1,7 @@
 #include "Team.h"
 #include "Controls.h"
 #include "GameState.h"
-#include "Map.h"
+#include "MapComponent.h"
 #include "InputComponent.h"
 #include "RenderComponent.h"
 #include "TransformComponent.h"

@@ -1,4 +1,4 @@
-#include "Map.h"
+#include "MapComponent.h"
 #include <fstream>
 #include <string>
 #include <streambuf>
@@ -9,41 +9,41 @@
 
 using namespace std;
 
-Map::Map(GameState* gameState)
+MapComponent::MapComponent(GameState* gameState)
 {
 	this->gameState = gameState;
 }
 
-Map::Map(TileCollection tiles)
+MapComponent::MapComponent(TileCollection tiles)
 {
 	this->tiles = tiles;
 }
 
-Map::~Map()
+MapComponent::~MapComponent()
 {
 }
 
-Tile Map::getTile(int x, int y)
+Tile MapComponent::getTile(int x, int y)
 {
 	return tiles[x][y];
 }
 
-TileCollection Map::getTiles()
+TileCollection MapComponent::getTiles()
 {
 	return tiles;
 }
 
-void Map::setTile(int x, int y, Tile value)
+void MapComponent::setTile(int x, int y, Tile value)
 {
 	tiles[x][y] = value;
 }
 
-void Map::setMap(TileCollection newMap) 
+void MapComponent::setMap(TileCollection newMap)
 {
 	tiles = newMap;
 }
 
-void Map::loadMap(char* fileLocation)
+void MapComponent::loadMap(char* fileLocation)
 {
 	ifstream file;
 	file.open(fileLocation, fstream::in);
@@ -178,7 +178,7 @@ void Map::loadMap(char* fileLocation)
 	}
 }
 
-void Map::render(Renderer* renderer)
+void MapComponent::render(Renderer* renderer)
 {
 	if (renderer->currentPass == RENDER_PASS_GROUND)
 	{
@@ -194,7 +194,7 @@ void Map::render(Renderer* renderer)
 	}
 }
 
-bool Map::to_bool(string const& s) 
+bool MapComponent::to_bool(string const& s)
 {
 	return s != "0";
 }
