@@ -161,9 +161,9 @@ void Map::loadMap(char* fileLocation)
 
 			if (itemID >= 0)
 			{
-				GameObject* gsItem = new GameObject();
+				/*GameObject* gsItem = new GameObject();
 				gsItem->attachComponent(new ItemComponent(itemID));
-				gameState->addGameObject(gsItem);
+				gameState->addGameObject(gsItem);*/
 			}
 
 			//GameObject* gsSuper = new GameObject();

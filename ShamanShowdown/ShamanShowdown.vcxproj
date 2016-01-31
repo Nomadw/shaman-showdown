@@ -73,11 +73,13 @@
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="InventoryComponent.cpp" />
     <ClCompile Include="ItemComponent.cpp" />
+    <ClCompile Include="ItemSpawner.cpp" />
     <ClCompile Include="MagicProjectileComponent.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Maths.cpp" />
     <ClCompile Include="MeleeComonent.cpp" />
+    <ClCompile Include="MissileUse.cpp" />
     <ClCompile Include="ObjectComponent.cpp" />
     <ClCompile Include="PhysicsComponent.cpp" />
     <ClCompile Include="RenderComponent.cpp" />
@@ -101,6 +103,7 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="ItemComponent.h" />
+    <ClInclude Include="ItemSpawner.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="HealthComponent.h" />
     <ClInclude Include="InputComponent.h" />
@@ -108,6 +111,7 @@
     <ClInclude Include="MagicProjectileComponent.h" />
     <ClInclude Include="Maths.h" />
     <ClInclude Include="MeleeComponent.h" />
+    <ClInclude Include="MissileUse.h" />
     <ClInclude Include="ObjectComponent.h" />
     <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="RenderComponent.h" />

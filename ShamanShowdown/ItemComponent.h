@@ -9,11 +9,14 @@ class Controls;
 class GameObject;
 class Renderer;
 
+enum Items { missle };
+
 using namespace std;
 class ItemComponent : public GameComponent
 {
 #pragma region Variables
 public:
+	Items item;
 private:
 	int texture;
 	float x;
@@ -23,7 +26,7 @@ private:
 
 #pragma region Constructors/Destuctors
 public:
-	ItemComponent(int textureID);
+	ItemComponent(int textureID, Items in);
 	~ItemComponent();
 #pragma endregion
 
