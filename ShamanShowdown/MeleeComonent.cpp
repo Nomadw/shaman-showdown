@@ -60,9 +60,12 @@ void MeleeComponent::update(GameState * state, float deltaTime, Controls * contr
 		team = &state->getTeam(teamID);
 		for (int i = 0; i < 2; i++)
 		{
-			if (stab.Magnitude(team->characters[i]->transform->Translation()) < 0.25f)
+			if (team->characters[i] != NULL)
 			{
-				((HealthComponent*)team->characters[i]->getComponent<HealthComponent>())->health -= deltaTime;
+				if (stab.Magnitude(team->characters[i]->transform->Translation()) < 0.35f)
+				{
+					((HealthComponent*)team->characters[i]->getComponent<HealthComponent>())->health -= deltaTime;
+				}
 			}
 		}
 	}

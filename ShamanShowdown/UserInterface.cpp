@@ -25,10 +25,22 @@ UserInterface::~UserInterface()
 
 void UserInterface::update(GameState * state, float deltaTime, Controls * controls, GameObject * object)
 {
-	health1 = ((HealthComponent *)state->getTeam(0).GetShaman()->getComponent<HealthComponent>())->health * 25.0f;
-	health2 = ((HealthComponent *)state->getTeam(0).GetWarrior()->getComponent<HealthComponent>())->health* 25.0f;
-	health3 = ((HealthComponent *)state->getTeam(1).GetShaman()->getComponent<HealthComponent>())->health* 25.0f;
-	health4 = ((HealthComponent *)state->getTeam(1).GetWarrior()->getComponent<HealthComponent>())->health* 25.0f;
+	if (state->getTeam(0).GetShaman() != NULL)
+	{
+		health1 = ((HealthComponent *)state->getTeam(0).GetShaman()->getComponent<HealthComponent>())->health * 25.0f;
+	}
+	if (state->getTeam(0).GetWarrior() != NULL)
+	{
+		health2 = ((HealthComponent *)state->getTeam(0).GetWarrior()->getComponent<HealthComponent>())->health * 25.0f;
+	}
+	if (state->getTeam(1).GetShaman() != NULL)
+	{
+		health3 = ((HealthComponent *)state->getTeam(1).GetShaman()->getComponent<HealthComponent>())->health * 25.0f;
+	}
+	if (state->getTeam(1 ).GetWarrior() != NULL)
+	{
+		health4 = ((HealthComponent *)state->getTeam(1).GetWarrior()->getComponent<HealthComponent>())->health * 25.0f;
+	}
 }
 
 void UserInterface::render(Renderer * renderer)

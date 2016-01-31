@@ -17,6 +17,7 @@ class GameObject
 public:
 	vector<GameComponent*> gameComponents;
 	TransformComponent* transform;
+	bool requestedRemoval;
 private:
 
 #pragma endregion

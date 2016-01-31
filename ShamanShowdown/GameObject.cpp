@@ -5,6 +5,7 @@ GameObject::GameObject()
 {
 	transform = new TransformComponent();
 	attachComponent(transform);
+	requestedRemoval = false;
 }
 
 

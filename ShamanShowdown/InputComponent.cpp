@@ -12,12 +12,13 @@ void downKey(TransformComponent* transform);
 void upKey(TransformComponent* transform);
 #pragma endregion
 
-InputComponent::InputComponent(WPARAM up, WPARAM left, WPARAM down, WPARAM right)
+InputComponent::InputComponent(WPARAM up, WPARAM left, WPARAM down, WPARAM right, float walkSpeed)
 {
 	chars[KEYS_UP] = up;
 	chars[KEYS_DOWN] = down;
 	chars[KEYS_LEFT] = left;
 	chars[KEYS_RIGHT] = right;
+	speed = walkSpeed;
 }
 
 
@@ -66,8 +67,8 @@ void InputComponent::update(GameState * state, float deltaTime, Controls* contro
 	float hypotenuse = sqrt(pow(moveX, 2) + pow(moveY, 2));
 	if (hypotenuse > 0)
 	{
-		moveX = (moveX / hypotenuse) * deltaTime;
-		moveY = (moveY / hypotenuse) * deltaTime;
+		moveX = (moveX / hypotenuse) * deltaTime * speed;
+		moveY = (moveY / hypotenuse) * deltaTime * speed;
 
 		Map* map = static_cast<Map*>(state->FindComponentInObject<Map>());
 		if (map != NULL)

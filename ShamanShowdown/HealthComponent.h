@@ -26,7 +26,7 @@ private:
 public:
 	//Overriders for the abstract base GameComponent
 	void render(Renderer * renderer){}
-	void update(GameState * state, float deltaTime, Controls* controls, GameObject * object){}
+	void update(GameState * state, float deltaTime, Controls* controls, GameObject * object);
 private:
 #pragma endregion
 
