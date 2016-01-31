@@ -1,4 +1,5 @@
 #include "GameState.h"
+#include "TransformComponent.h"
 
 GameState::GameState()
 {
@@ -43,11 +44,23 @@ void GameState::update(float deltaTime, Controls* controls)
 					if (teams[t].characters[c] == gameObjects[i])
 					{
 						teams[t].characters[c] = NULL;
+						teams[t].respawnDelay = 5.0f;
 					}
 				}
 			}
 			gameObjects.erase(gameObjects.begin() + i);
 			i--;
+		}
+	}
+	for (int i = 0; i < 2; i++)
+	{
+		teams[i].respawnDelay -= deltaTime;
+		if (teams[i].respawnDelay <= 0 && teams[i].GetWarrior() == NULL)
+		{
+			GameObject * wario = teams[i].BuildWarrior(i);
+			addGameObject(wario);
+			wario->transform->Translation().setX((rand() % 2) == 0 ? 18 : 2);
+			wario->transform->Translation().setY((rand() % 2) == 0 ? 2 : 9);
 		}
 	}
 }

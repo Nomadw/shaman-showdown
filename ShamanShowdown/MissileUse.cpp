@@ -26,12 +26,19 @@ void MissileUse::update(GameState * state, float deltaTime, Controls * controls,
 	else {
 		key = 'O';
 	}
-	if (controls->isKeyPressed(key) && state->getTeam(1 - team).GetWarrior() != NULL)
+	if (controls->isKeyPressed(key) && (state->getTeam(1 - team).GetWarrior() != NULL || state->getTeam(1 - team).GetShaman() != NULL))
 	{
 		requestRemoval = true;
 		GameObject * missleObject = new GameObject();
 		missleObject->transform->Translation() = object->transform->Translation();
-		missleObject->attachComponent(new MagicProjectileComponent(0, 25, state->getTeam(1-team).GetWarrior()->transform, missleObject->transform, team));
+		if (state->getTeam(1 - team).GetWarrior() != NULL)
+		{
+			missleObject->attachComponent(new MagicProjectileComponent(0, 25, state->getTeam(1 - team).GetWarrior()->transform, missleObject->transform, team));
+		}
+		else if (state->getTeam(1 - team).GetShaman() != NULL)
+		{
+			missleObject->attachComponent(new MagicProjectileComponent(0, 25, state->getTeam(1 - team).GetShaman()->transform, missleObject->transform, team));
+		}
 		state->addGameObject(missleObject);
 	}
 }

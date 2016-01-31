@@ -27,7 +27,7 @@ GameObject * Team::BuildWarrior(int teamNumber)
 
 	int teamOffset = teamNumber * 8;
 	int typeOffset = 0;
-	characters[1]->attachComponent(new InputComponent(moveChars[teamOffset + typeOffset + 0], moveChars[teamOffset + typeOffset + 1], moveChars[teamOffset + typeOffset + 2], moveChars[teamOffset + typeOffset + 3], 1.0f));
+	characters[1]->attachComponent(new InputComponent(moveChars[teamOffset + typeOffset + 0], moveChars[teamOffset + typeOffset + 1], moveChars[teamOffset + typeOffset + 2], moveChars[teamOffset + typeOffset + 3], 1.3f));
 	characters[1]->attachComponent(new RenderComponent(teamNumber == 0 ? 18 : 19));
 	characters[1]->attachComponent(new MeleeComponent());
 	characters[1]->attachComponent(new TeamMemberComponent(teamNumber));

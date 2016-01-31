@@ -12,6 +12,8 @@ class GameState
 {
 #pragma region Variables
 public:
+
+
 private:
 	vector<Team> teams;
 	vector<GameObject*> gameObjects;

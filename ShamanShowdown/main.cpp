@@ -16,6 +16,7 @@
 #include "GameState.h"
 #include "Vector3.h"
 #include "ItemSpawner.h"
+#include "ItemComponent.h"
 #include "TransformComponent.h"
 
 // some basic numbers to hold the position and size of the window
@@ -123,7 +124,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	MapComponent * map = new MapComponent(state);
 	map->loadMap("map1.gmp");
 	theMap->attachComponent(map);
-	theMap->attachComponent(new ItemSpawner(0.1f));
+	theMap->attachComponent(new ItemSpawner(10.0f));
 	theMap->attachComponent(ui);
 
 	state->addGameObject(theMap);
@@ -156,7 +157,17 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	renderer->loadTexture("Textures/angryshitred.tga", "redhealth");
 	float deltaTime = 0;
 
-	//map.loadMap("PLACEHOLDER");
+	GameObject * startItem = new GameObject();
+	startItem->attachComponent(new ItemComponent(23, missle));
+	startItem->transform->Translation().setX(15);
+	startItem->transform->Translation().setY(5);
+	state->addGameObject(startItem);
+
+	startItem = new GameObject();
+	startItem->attachComponent(new ItemComponent(23, missle));
+	startItem->transform->Translation().setX(15);
+	startItem->transform->Translation().setY(12);
+	state->addGameObject(startItem);
 
 	while (!needToQuit)
 	{

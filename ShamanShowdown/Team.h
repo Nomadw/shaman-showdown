@@ -15,6 +15,7 @@ class Team
 public:
 	
 	GameObject* characters[2];
+	float respawnDelay = 0;
 private:
 #pragma endregion
 
