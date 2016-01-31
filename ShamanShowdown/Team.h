@@ -34,7 +34,7 @@ private:
 #pragma region Functions
 public:
 	GameObject * BuildWarrior(int teamNumber);
-	GameObject * Team::BuildShaman(int teamNumber);
+	GameObject * BuildShaman(int teamNumber);
 private:
 #pragma endregion
 };
