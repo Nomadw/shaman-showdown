@@ -1,6 +1,10 @@
 #pragma once
 #include "GameComponent.h"
-class UserInterfaceComponent : public GameComponent
+
+#include <vector>
+using namespace std;
+class UserInterface :
+	public GameComponent
 {
 public:
 	UserInterfaceComponent();
@@ -15,6 +19,9 @@ public:
 
 	void update(GameState * state, float deltaTime, Controls* controls, GameObject * object);
 	void render(Renderer * renderer);
+
+	vector <int> health;
+	vector <int> tile;
 
 
 };

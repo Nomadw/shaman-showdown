@@ -11,11 +11,10 @@
 
 UserInterfaceComponent::UserInterfaceComponent()
 {
-	health1 = 0;
-	health2 = 0;
-	health3 = 0;
-	health4 = 0;
-	randcount = 100;
+	for (int i = 0; i < 4; i++) {
+		health.push_back(0);
+		tile.push_back(0);
+}
 }
 
 
@@ -27,27 +26,38 @@ void UserInterfaceComponent::update(GameState * state, float deltaTime, Controls
 {
 	if (state->getTeam(0).GetShaman() != NULL)
 	{
-		health1 = ((HealthComponent *)state->getTeam(0).GetShaman()->getComponent<HealthComponent>())->health * 25.0f;
+		health[0] = ((HealthComponent *)state->getTeam(0).GetShaman()->getComponent<HealthComponent>())->health;//;
 	}
 	if (state->getTeam(0).GetWarrior() != NULL)
 	{
-		health2 = ((HealthComponent *)state->getTeam(0).GetWarrior()->getComponent<HealthComponent>())->health * 25.0f;
+		health[1] = ((HealthComponent *)state->getTeam(0).GetWarrior()->getComponent<HealthComponent>())->health;// *25.0f;
 	}
 	if (state->getTeam(1).GetShaman() != NULL)
 	{
-		health3 = ((HealthComponent *)state->getTeam(1).GetShaman()->getComponent<HealthComponent>())->health * 25.0f;
+		health[2] = ((HealthComponent *)state->getTeam(1).GetShaman()->getComponent<HealthComponent>())->health;// *25.0f;
 	}
 	if (state->getTeam(1 ).GetWarrior() != NULL)
 	{
-		health4 = ((HealthComponent *)state->getTeam(1).GetWarrior()->getComponent<HealthComponent>())->health * 25.0f;
+		health[3] = ((HealthComponent *)state->getTeam(1).GetWarrior()->getComponent<HealthComponent>())->health;// *25.0f;
 	}
 }
 
 void UserInterfaceComponent::render(Renderer * renderer)
 {
-	renderer->draw(21, 225 + (health1 / 2), 1075, (health1 * 2), 20); // Red shaman health
-	renderer->draw(21, 225 + (health2 / 2), 1125, (health2 * 2), 20); // Red warrior health
-	renderer->draw(21, 850 + (health3 / 2), 1075, (health3 * 2), 20); // Blue shaman health
-	renderer->draw(21, 850 + (health4 / 2), 1125, (health4 * 2), 20); // Blue warrior health
-	renderer->draw(20, 650, 1100, 1250, 100);
+	for (unsigned int i = 0; i < health.size(); i++)
+	{ 
+		if (health[i] < 50 && health[i] > 25) {
+			tile[i] = 23;
+		}
+		else if (health[i] < 25) {
+			tile[i] = 24;
+		}
+		else tile[i] = 21;
+	}
+
+	renderer->draw(tile[0], 350 + (health[0] / 4), 1080, (health[0] * 4), 50); // Red shaman health
+	renderer->draw(tile[1], 350 + (health[1] / 4), 1125, (health[1] * 4), 50); // Red warrior health
+	renderer->draw(tile[2], 975 + (health[2] / 4), 1080, (health[2] * 4), 50); // Blue shaman health
+	renderer->draw(tile[3], 975 + (health[3] / 4), 1125, (health[3] * 4), 50); // Blue warrior health
+	renderer->draw(22, 620, 1100, 1250, 100);
 }

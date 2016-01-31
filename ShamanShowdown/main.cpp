@@ -19,6 +19,7 @@
 // some basic numbers to hold the position and size of the window
 #define WIDTH		2048
 #define HEIGHT		1152
+
 #define TOPLEFTX	0
 #define TOPLEFTY	0
 
@@ -63,7 +64,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	AdjustWindowRect(&rect, (WS_OVERLAPPED | WS_MINIMIZEBOX | WS_SYSMENU) , false);
 
 	HWND myWindow = CreateWindow(TEXT("my window class name"),		// window class to use - in this case the one we created a minute ago
-		TEXT("OpenGL, No GLUT"),					// window title
+		TEXT("Shaman Showdown - Cheeky Kim games 2016"),					// window title
 		WS_OVERLAPPEDWINDOW,						// ??
 		TOPLEFTX, TOPLEFTY,						// x, y
 		TOPLEFTX + WIDTH, TOPLEFTY + HEIGHT,		// width and height
@@ -146,7 +147,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	renderer->loadTexture("Textures/shaman red_right_1.tga", "rr1");
 
 	renderer->loadTexture("Textures/HUDYOURMUDDA.tga", "hud");
-	renderer->loadTexture("Textures/healtjficlnutdshit.tga", "hud");
+	renderer->loadTexture("Textures/healtjficlnutdshit.tga", "heathbar");
+	renderer->loadTexture("Textures/yourhudisshit.tga", "newhud");
+	renderer->loadTexture("Textures/warmpissyellow.tga", "yellowhealth");
+	renderer->loadTexture("Textures/angryshitred.tga", "redhealth");
 
 	float deltaTime = 0;
 

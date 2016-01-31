@@ -33,28 +33,34 @@ void InputComponent::update(GameState * state, float deltaTime, Controls* contro
 	RenderComponent * render = (RenderComponent *)object->getComponent<RenderComponent>();
 	float moveX = 0, moveY = 0;
 
+	bool isMovingUp = false;
+	bool isMovingLeft = false;
+	bool isMovingRight = false;
+
 	if (controls->isKeyPressed(chars[KEYS_UP]))
 	{
-		object->attachComponent(new MagicProjectileComponent(21, MagicProjectileComponent::SPELL_DIRECTION_RIGHT, 1, transform));
-		moveY += -1;
+		isMovingUp = true;
+		moveY = -1;
 		render->texture = 16;
 		transform->Rotation().getY() = -1;
 	}
 	if (controls->isKeyPressed(chars[KEYS_LEFT]))
 	{
-		moveX += -1;
+		isMovingLeft = true;
+		moveX = -1;
 		render->texture = 18;
 		transform->Rotation().getX() = -1;
 	}
 	if (controls->isKeyPressed(chars[KEYS_DOWN]))
 	{
-		moveY += 1;
+		moveY = 1;
 		render->texture = 17;
 		transform->Rotation().getY() = 1;
 	}
 	if (controls->isKeyPressed(chars[KEYS_RIGHT]))
 	{
-		moveX += 1;
+		isMovingRight = true;
+		moveX = 1;
 		render->texture = 19;
 		transform->Rotation().getX() = 1;
 	}
@@ -79,21 +85,79 @@ void InputComponent::update(GameState * state, float deltaTime, Controls* contro
 		}
 
 		{
-			int posx = transform->Translation().getX() + (moveX * 2);
-			int posy = transform->Translation().getY() + (moveY * 2);
+			int posx = transform->Translation().getX();
+			int posy = transform->Translation().getY();
+
+			if (isMovingRight)
+			{
+				int tmpYT = posy - 1;
+
+				if (abs((tmpYT * 64) - (transform->Translation().getY() * 64.0f)) > 32.0f)
+				{
+					posx += moveX;
+
+					if (map->getTiles()[posx][posy].isWalkable())
+					{
+						transform->Translation().setX(transform->Translation().getX() + (moveX * 2));
+					}
+				}
+				else
+				{
+					posx += moveX;
+
+					if (map->getTiles()[posx][posy].isWalkable())
+		{
+						transform->Translation().setX(transform->Translation().getX() + (moveX * 2));
+					}
+				}
+			}
+			else
+			{
+				posx += moveX;
+
 			if (map->getTiles()[posx][posy].isWalkable())
 			{
 				transform->Translation().setX(transform->Translation().getX() + (moveX * 2));
 			}
 		}
+		}
 
 		{
 			int posx = transform->Translation().getX();
-			int posy = transform->Translation().getY() + moveY;
+			int posy = transform->Translation().getY();
+
+			if (isMovingUp)
+			{
+				int tileI = posy * 64;
+				float tileF = (float)tileI;
+
+				if ((transform->Translation().getY() * 64.0f) - tileF > 32.0f)
+				{
+					if (map->getTiles()[posx][posy].isWalkable())
+					{
+						transform->Translation().setY(transform->Translation().getY() + (moveY * 2));
+					}
+				}
+				else
+				{
+					posy += moveY;
+
+					if (map->getTiles()[posx][posy].isWalkable())
+					{
+						transform->Translation().setY(transform->Translation().getY() + (moveY * 2));
+					}
+				}
+			}
+			else
+			{
+				posy += moveY;
+
 			if (map->getTiles()[posx][posy].isWalkable())
 			{
 				transform->Translation().setY(transform->Translation().getY() + (moveY * 2));
 			}
+			}
+
 		}
 	}
 }

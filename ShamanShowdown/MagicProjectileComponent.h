@@ -16,25 +16,16 @@ class MagicProjectileComponent : public GameComponent
 
 #pragma region Variables
 public:
-	enum SPELL_DIRECTION
-	{
-		SPELL_DIRECTION_UP,
-		SPELL_DIRECTION_DOWN,
-		SPELL_DIRECTION_LEFT,
-		SPELL_DIRECTION_RIGHT
-	};
 private:
 	int texture;
-	SPELL_DIRECTION direction;
 	float spellSpeed;
-	TransformComponent* transform;
-	Vector3* dirVec;
-	bool should = true;
+	Vector3* direction;
+	Vector3* position;
 #pragma endregion
 
 #pragma region Constructors/Destuctors
 public:
-	MagicProjectileComponent(int textureID, SPELL_DIRECTION direction, float spellSpeed, TransformComponent* transform);
+	MagicProjectileComponent(int textureID, float spellSpeed, TransformComponent* target, TransformComponent* start);
 	~MagicProjectileComponent();
 #pragma endregion
 

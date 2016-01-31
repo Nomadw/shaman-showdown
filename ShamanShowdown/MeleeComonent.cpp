@@ -64,7 +64,7 @@ void MeleeComponent::update(GameState * state, float deltaTime, Controls * contr
 			{
 				if (stab.Magnitude(team->characters[i]->transform->Translation()) < 0.35f)
 				{
-					((HealthComponent*)team->characters[i]->getComponent<HealthComponent>())->health -= deltaTime;
+					((HealthComponent*)team->characters[i]->getComponent<HealthComponent>())->health -= deltaTime * 20;
 				}
 			}
 		}
