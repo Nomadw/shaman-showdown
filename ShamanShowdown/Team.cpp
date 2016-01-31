@@ -34,7 +34,7 @@ GameObject * Team::BuildWarrior(int teamNumber)
 	characters[1]->attachComponent(new MeleeComponent());
 	characters[1]->attachComponent(new TeamMemberComponent(teamNumber));
 	characters[1]->attachComponent(new HealthComponent(5));
-	characters[1]->transform->Translation() = Vector3(teamNumber == 0 ? 18 : 2, 2);
+	characters[1]->transform->Translation() = Vector3(teamNumber == 0 ? 28 : 2, 2);
 
 	return object;
 }
@@ -50,7 +50,7 @@ GameObject * Team::BuildShaman(int teamNumber)
 	characters[0]->attachComponent(new TeamMemberComponent(teamNumber));
 	characters[0]->attachComponent(new HealthComponent(15));
 	characters[0]->attachComponent(new RenderComponent(teamNumber == 0 ? 22 : 38));
-	characters[0]->transform->Translation() = Vector3(teamNumber == 0 ? 18 : 2, 9);
+	characters[0]->transform->Translation() = Vector3(teamNumber == 0 ? 28 : 2, 15);
 	characters[0]->attachComponent(new InventoryComponent());
 	characters[0]->attachComponent(new EffectsComponent());
 
