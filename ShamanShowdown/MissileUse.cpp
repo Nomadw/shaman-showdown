@@ -26,7 +26,7 @@ void MissileUse::update(GameState * state, float deltaTime, Controls * controls,
 	else {
 		key = 'O';
 	}
-	if (controls->isKeyPressed(key)) 
+	if (controls->isKeyPressed(key) && state->getTeam(1 - team).GetWarrior() != NULL)
 	{
 		requestRemoval = true;
 		GameObject * missleObject = new GameObject();

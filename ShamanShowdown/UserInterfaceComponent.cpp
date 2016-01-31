@@ -26,19 +26,20 @@ void UserInterfaceComponent::update(GameState * state, float deltaTime, Controls
 {
 	if (state->getTeam(0).GetShaman() != NULL)
 	{
-		health[0] = ((HealthComponent *)state->getTeam(0).GetShaman()->getComponent<HealthComponent>())->health;//;
+		health[0] = ((HealthComponent *)state->getTeam(0).GetShaman()->getComponent<HealthComponent>())->Health();//;
+		health[0] = ((HealthComponent *)state->getTeam(0).GetShaman()->getComponent<HealthComponent>())->Health();//;
 	}
 	if (state->getTeam(0).GetWarrior() != NULL)
 	{
-		health[1] = ((HealthComponent *)state->getTeam(0).GetWarrior()->getComponent<HealthComponent>())->health;// *25.0f;
+		health[1] = ((HealthComponent *)state->getTeam(0).GetWarrior()->getComponent<HealthComponent>())->Health();// *25.0f;
 	}
 	if (state->getTeam(1).GetShaman() != NULL)
 	{
-		health[2] = ((HealthComponent *)state->getTeam(1).GetShaman()->getComponent<HealthComponent>())->health;// *25.0f;
+		health[2] = ((HealthComponent *)state->getTeam(1).GetShaman()->getComponent<HealthComponent>())->Health();// *25.0f;
 	}
-	if (state->getTeam(1 ).GetWarrior() != NULL)
+	if (state->getTeam(1).GetWarrior() != NULL)
 	{
-		health[3] = ((HealthComponent *)state->getTeam(1).GetWarrior()->getComponent<HealthComponent>())->health;// *25.0f;
+		health[3] = ((HealthComponent *)state->getTeam(1).GetWarrior()->getComponent<HealthComponent>())->Health();// *25.0f;
 	}
 }
 
@@ -46,10 +47,12 @@ void UserInterfaceComponent::render(Renderer * renderer)
 {
 	for (unsigned int i = 0; i < health.size(); i++)
 	{ 
-		if (health[i] < 50 && health[i] > 25) {
+		if (health[i] < 50 && health[i] > 25) 
+		{
 			tile[i] = 23;
 		}
-		else if (health[i] < 25) {
+		else if (health[i] < 25) 
+		{
 			tile[i] = 24;
 		}
 		else tile[i] = 21;

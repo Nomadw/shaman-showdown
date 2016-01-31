@@ -39,7 +39,7 @@ void MagicProjectileComponent::update(GameState* state, float deltaTime, Control
 		if (collider != NULL)
 		{
 			object->requestedRemoval = true;
-			((HealthComponent*)collider->getComponent<HealthComponent>())->health -= 20;
+			((HealthComponent*)collider->getComponent<HealthComponent>())->TakeDamage(5);
 		}
 }
 
