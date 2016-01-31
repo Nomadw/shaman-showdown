@@ -29,6 +29,7 @@
     <ClCompile Include="ItemSpawner.cpp" />
     <ClCompile Include="UserInterfaceComponent.cpp" />
     <ClCompile Include="MapComponent.cpp" />
+    <ClCompile Include="EffectsComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controls.h" />
@@ -62,6 +63,7 @@
     <ClInclude Include="UserInterfaceComponent.h" />
     <ClInclude Include="MapComponent.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="EffectsComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="test.tga" />
