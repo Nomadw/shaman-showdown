@@ -5,6 +5,8 @@
 #include "MapComponent.h"
 #include "RenderComponent.h"
 #include "MagicProjectileComponent.h"
+#include "MeleeComponent.h"
+#include "TeamMemberComponent.h"
 
 #pragma region private prototypes
 void rightKey(TransformComponent* transform);
@@ -36,32 +38,44 @@ void InputComponent::update(GameState * state, float deltaTime, Controls* contro
 	bool isMovingUp = false;
 	bool isMovingLeft = false;
 	bool isMovingRight = false;
-
+	int offset = 0;
+	if (object->getComponent<MeleeComponent>() != NULL && ((TeamMemberComponent*)object->getComponent<TeamMemberComponent>())->team == 0) 
+	{
+		offset = 10;
+	}
+	if (((TeamMemberComponent*)object->getComponent<TeamMemberComponent>())->team == 1)
+	{
+		offset = 14;
+		if(object->getComponent<MeleeComponent>() != NULL) 
+		{
+			offset += 4;
+		}
+	}
 	if (controls->isKeyPressed(chars[KEYS_UP]))
 	{
 		isMovingUp = true;
 		moveY = -1;
-		render->texture = 16;
+		render->texture = 16 + offset;
 		transform->Rotation().getY() = -1;
 	}
 	if (controls->isKeyPressed(chars[KEYS_LEFT]))
 	{
 		isMovingLeft = true;
 		moveX = -1;
-		render->texture = 18;
+		render->texture = 18 + offset;
 		transform->Rotation().getX() = -1;
 	}
 	if (controls->isKeyPressed(chars[KEYS_DOWN]))
 	{
 		moveY = 1;
-		render->texture = 17;
+		render->texture = 17 + offset;
 		transform->Rotation().getY() = 1;
 	}
 	if (controls->isKeyPressed(chars[KEYS_RIGHT]))
 	{
 		isMovingRight = true;
 		moveX = 1;
-		render->texture = 19;
+		render->texture = 19 + offset;
 		transform->Rotation().getX() = 1;
 	}
 	if (moveX == 0 && moveY != 0) 
