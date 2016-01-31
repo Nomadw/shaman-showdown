@@ -7,6 +7,7 @@ class HealthComponent : public GameComponent
 {
 #pragma region Variables
 public:
+	const int MAX_HEALTH = 100;
 	float health;
 private:
 #pragma endregion
