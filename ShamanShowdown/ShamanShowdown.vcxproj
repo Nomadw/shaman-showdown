@@ -19,7 +19,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -125,6 +125,7 @@
   <ItemGroup>
     <Image Include="shaman-red.tga" />
     <Image Include="test.tga" />
+    <Image Include="Textures\angryshitred.tga" />
     <Image Include="Textures\board.tga" />
     <Image Include="Textures\bridge-horz.tga" />
     <Image Include="Textures\bridge-vert.tga" />
@@ -152,7 +153,9 @@
     <Image Include="Textures\tree-rocks.tga" />
     <Image Include="Textures\tree.tga" />
     <Image Include="Textures\wall.tga" />
+    <Image Include="Textures\warmpissyellow.tga" />
     <Image Include="Textures\wiper-bar.tga" />
+    <Image Include="Textures\yourhudisshit.tga" />
   </ItemGroup>
   <ItemGroup>
     <None Include="map1.gmp" />

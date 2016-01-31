@@ -1,5 +1,8 @@
 #pragma once
 #include "GameComponent.h"
+
+#include <vector>
+using namespace std;
 class UserInterface :
 	public GameComponent
 {
@@ -16,6 +19,9 @@ public:
 
 	void update(GameState * state, float deltaTime, Controls* controls, GameObject * object);
 	void render(Renderer * renderer);
+
+	vector <int> health;
+	vector <int> tile;
 
 
 };

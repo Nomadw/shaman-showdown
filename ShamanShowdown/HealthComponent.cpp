@@ -3,7 +3,7 @@
 
 HealthComponent::HealthComponent()
 {
-	health = 5;
+	health = 100;
 }
 
 
