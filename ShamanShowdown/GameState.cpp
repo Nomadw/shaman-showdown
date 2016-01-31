@@ -39,13 +39,13 @@ void GameState::Initialize()
 	addGameObject(theMap);
 
 	GameObject * startItem = new GameObject();
-	startItem->attachComponent(new ItemComponent(25, missle));
+	startItem->attachComponent(new ItemComponent(25, MISSLE));
 	startItem->transform->Translation().setX(15);
 	startItem->transform->Translation().setY(5);
 	addGameObject(startItem);
 
 	startItem = new GameObject();
-	startItem->attachComponent(new ItemComponent(25, missle));
+	startItem->attachComponent(new ItemComponent(25, MISSLE));
 	startItem->transform->Translation().setX(15);
 	startItem->transform->Translation().setY(12);
 	addGameObject(startItem);
