@@ -152,6 +152,12 @@
     <Image Include="Textures\river-tesselate.tga" />
     <Image Include="Textures\river-vertical.tga" />
     <Image Include="Textures\sandy-stone.tga" />
+    <Image Include="Textures\shaman blue_back_1.tga" />
+    <Image Include="Textures\shaman blue_back_2.tga" />
+    <Image Include="Textures\shaman blue_front_1.tga" />
+    <Image Include="Textures\shaman blue_front_2.tga" />
+    <Image Include="Textures\shaman blue_left_1.tga" />
+    <Image Include="Textures\shaman blue_right_1.tga" />
     <Image Include="Textures\shaman red_back_1.tga" />
     <Image Include="Textures\shaman red_back_2.tga" />
     <Image Include="Textures\shaman red_front_1.tga" />

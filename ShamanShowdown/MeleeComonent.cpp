@@ -39,7 +39,12 @@ void MeleeComponent::update(GameState * state, float deltaTime, Controls * contr
 {
 	if (stabTime <0 && stabDelay < 0) 
 	{
-		if (controls->isKeyPressed(VK_SPACE)) 
+		if (((TeamMemberComponent*)object->getComponent<TeamMemberComponent>())->team == 1 && controls->isKeyPressed(VK_SPACE)) 
+		{
+			stabDelay = 1.0f;
+			stabTime = 0.25f;
+		}
+		if (((TeamMemberComponent*)object->getComponent<TeamMemberComponent>())->team == 0 && controls->isKeyPressed(VK_CONTROL))
 		{
 			stabDelay = 1.0f;
 			stabTime = 0.25f;

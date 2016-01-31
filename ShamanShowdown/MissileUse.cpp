@@ -21,7 +21,7 @@ void MissileUse::update(GameState * state, float deltaTime, Controls * controls,
 	char key;
 	int team = ((TeamMemberComponent *)object->getComponent<TeamMemberComponent>())->team;
 	if (team == 0) {
-		key = 'Q';
+		key = 'Y';
 	}
 	else {
 		key = 'O';

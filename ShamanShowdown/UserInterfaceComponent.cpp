@@ -58,9 +58,9 @@ void UserInterfaceComponent::render(Renderer * renderer)
 		else tile[i] = 21;
 	}
 
-	renderer->draw(tile[0], 350 + (health[0] / 4), 1080, (health[0] * 4), 50); // Red shaman health
-	renderer->draw(tile[1], 350 + (health[1] / 4), 1125, (health[1] * 4), 50); // Red warrior health
-	renderer->draw(tile[2], 975 + (health[2] / 4), 1080, (health[2] * 4), 50); // Blue shaman health
-	renderer->draw(tile[3], 975 + (health[3] / 4), 1125, (health[3] * 4), 50); // Blue warrior health
+	renderer->draw(tile[2], 350 + (health[2] / 4), 1080, (health[2] * 4), 50); // Red shaman health
+	renderer->draw(tile[3], 350 + (health[3] / 4), 1125, (health[3] * 4), 50); // Red warrior health
+	renderer->draw(tile[0], 975 + (health[0] / 4), 1080, (health[0] * 4), 50); // Blue shaman health
+	renderer->draw(tile[1], 975 + (health[1] / 4), 1125, (health[1] * 4), 50); // Blue warrior health
 	renderer->draw(22, 620, 1100, 1250, 100);
 }

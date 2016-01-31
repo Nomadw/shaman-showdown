@@ -206,6 +206,24 @@
     <Image Include="Textures\Blue powerup.tga">
       <Filter>Textures</Filter>
     </Image>
+    <Image Include="Textures\shaman blue_back_1.tga">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\shaman blue_back_2.tga">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\shaman blue_front_1.tga">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\shaman blue_front_2.tga">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\shaman blue_left_1.tga">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\shaman blue_right_1.tga">
+      <Filter>Textures</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="map1.gmp" />
