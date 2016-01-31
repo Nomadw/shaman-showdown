@@ -8,6 +8,7 @@ class Renderer;
 class GameComponent
 {
 public:
+	bool requestRemoval = false;
 	virtual void render(Renderer * renderer) = 0;
 	virtual void update(GameState * state, float deltaTime, Controls* controls, GameObject * object) = 0;
 };

@@ -9,12 +9,12 @@
 
 class GameState;
 
-class Map : public GameComponent
+class MapComponent : public GameComponent
 {
 public:
-	Map(GameState* gameState);
-	Map(TileCollection tiles);
-	~Map();
+	MapComponent(GameState* gameState);
+	MapComponent(TileCollection tiles);
+	~MapComponent();
 
 	Tile getTile(int x, int y);
 	TileCollection getTiles();

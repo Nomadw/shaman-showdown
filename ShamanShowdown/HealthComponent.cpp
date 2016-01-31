@@ -1,9 +1,10 @@
 #include "HealthComponent.h"
 #include "GameObject.h"
 
-HealthComponent::HealthComponent()
+HealthComponent::HealthComponent(int health)
 {
-	health = 5;
+	maxHealth = health;
+	this->health = health;
 }
 
 
@@ -18,4 +19,19 @@ void HealthComponent::update(GameState * state, float deltaTime, Controls* contr
 	{
 		object->requestedRemoval = true;
 	}
+}
+
+float HealthComponent::HealthRaw()
+{
+	return health;
+}
+
+float HealthComponent::Health()
+{
+	return 100.0f * (health / maxHealth);
+}
+
+void HealthComponent::TakeDamage(float dmgPts)
+{
+	health -= dmgPts;
 }

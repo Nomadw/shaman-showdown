@@ -5,7 +5,6 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Map.cpp" />
     <ClCompile Include="Maths.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -24,16 +23,18 @@
     <ClCompile Include="Team.cpp" />
     <ClCompile Include="ObjectComponent.cpp" />
     <ClCompile Include="ItemComponent.cpp" />
-    <ClCompile Include="UserInterface.cpp" />
     <ClCompile Include="MagicProjectileComponent.cpp" />
     <ClCompile Include="TeamMemberComponent.cpp" />
+    <ClCompile Include="MissileUse.cpp" />
+    <ClCompile Include="ItemSpawner.cpp" />
+    <ClCompile Include="UserInterfaceComponent.cpp" />
+    <ClCompile Include="MapComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controls.h" />
     <ClInclude Include="GameComponent.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameState.h" />
-    <ClInclude Include="Map.h" />
     <ClInclude Include="Maths.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Texture.h" />
@@ -54,9 +55,13 @@
     <ClInclude Include="Team.h" />
     <ClInclude Include="ObjectComponent.h" />
     <ClInclude Include="ItemComponent.h" />
-    <ClInclude Include="UserInterface.h" />
     <ClInclude Include="MagicProjectileComponent.h" />
     <ClInclude Include="TeamMemberComponent.h" />
+    <ClInclude Include="MissileUse.h" />
+    <ClInclude Include="ItemSpawner.h" />
+    <ClInclude Include="UserInterfaceComponent.h" />
+    <ClInclude Include="MapComponent.h" />
+    <ClInclude Include="Map.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="test.tga" />
@@ -143,6 +148,15 @@
       <Filter>Textures</Filter>
     </Image>
     <Image Include="Textures\HUDYOURMUDDA.tga">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\yourhudisshit.tga">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\angryshitred.tga">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\warmpissyellow.tga">
       <Filter>Textures</Filter>
     </Image>
   </ItemGroup>
