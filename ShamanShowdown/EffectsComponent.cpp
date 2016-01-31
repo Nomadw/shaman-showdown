@@ -5,9 +5,6 @@
 EffectsComponent::EffectsComponent()
 {
 	effectTimeActive[EFFECTS_SUPERSPEED] = 5;
-	effectTimeActive[EFFECTS_FREEZE] = 5;
-	effectTimeActive[EFFECTS_INVERT] = 5;
-	effectTimeActive[EFFECTS_INVINCIBLE] = 5;
 	effectTimeActive[EFFECTS_SLOW] = 5;
 }
 
