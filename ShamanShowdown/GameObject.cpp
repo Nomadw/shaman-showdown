@@ -25,6 +25,14 @@ void GameObject::update(GameState * state, float deltaTime, Controls* controls)
 	{
 		gameComponents[i]->update(state, deltaTime, controls, this);
 	}
+	for (int i = 0; i < gameComponents.size(); i++)
+	{
+		if (gameComponents[i]->requestRemoval) 
+		{
+			gameComponents.erase(gameComponents.begin() + i);
+			i--;
+		}
+	}
 }
 
 void GameObject::render(Renderer * renderer)
