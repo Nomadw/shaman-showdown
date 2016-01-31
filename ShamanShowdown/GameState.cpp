@@ -32,6 +32,24 @@ void GameState::update(float deltaTime, Controls* controls)
 	{
 		gameObjects[i]->update(this, deltaTime, controls);
 	}
+	for (int i = 0; i < gameObjects.size(); i++)
+	{
+		if (gameObjects[i]->requestedRemoval)
+		{
+			for (int t = 0; t < 2; t++)
+			{
+				for (int c = 0; c < 2; c++)
+				{
+					if (teams[t].characters[c] == gameObjects[i])
+					{
+						teams[t].characters[c] = NULL;
+					}
+				}
+			}
+			gameObjects.erase(gameObjects.begin() + i);
+			i--;
+		}
+	}
 }
 
 void GameState::render(Renderer* renderer)

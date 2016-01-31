@@ -83,6 +83,7 @@
     <ClCompile Include="RenderComponent.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Team.cpp" />
+    <ClCompile Include="TeamMemberComponent.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileCollection.cpp" />
@@ -112,6 +113,7 @@
     <ClInclude Include="RenderComponent.h" />
     <ClInclude Include="Team.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="TeamMemberComponent.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileCollection.h" />
@@ -127,11 +129,13 @@
     <Image Include="Textures\bridge-horz.tga" />
     <Image Include="Textures\bridge-vert.tga" />
     <Image Include="Textures\grass-flowers.tga" />
+    <Image Include="Textures\healtjficlnutdshit.tga" />
     <Image Include="Textures\henge-lr.tga" />
     <Image Include="Textures\henge-tb.tga" />
     <Image Include="Textures\henge-tlbr.tga" />
     <Image Include="Textures\henge-trbl.tga" />
     <Image Include="Textures\hud.tga" />
+    <Image Include="Textures\HUDYOURMUDDA.tga" />
     <Image Include="Textures\mud.tga" />
     <Image Include="Textures\river-horizontal.tga" />
     <Image Include="Textures\river-tesselate.tga" />

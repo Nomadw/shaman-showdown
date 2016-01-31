@@ -1,8 +1,9 @@
 #include "HealthComponent.h"
-
+#include "GameObject.h"
 
 HealthComponent::HealthComponent()
 {
+	health = 5;
 }
 
 
@@ -10,12 +11,11 @@ HealthComponent::~HealthComponent()
 {
 }
 
-void HealthComponent::update()
+
+void HealthComponent::update(GameState * state, float deltaTime, Controls* controls, GameObject * object)
 {
-
-}
-
-void HealthComponent::render()
-{
-
+	if (health <= 0)
+	{
+		object->requestedRemoval = true;
+	}
 }

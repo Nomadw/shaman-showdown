@@ -17,6 +17,7 @@ class GameObject
 public:
 	vector<GameComponent*> gameComponents;
 	TransformComponent* transform;
+	bool requestedRemoval;
 private:
 
 #pragma endregion
@@ -53,6 +54,7 @@ public:
 		return (reinterpret_cast<GameComponent*>(NULL));
 	}
 
+	float GetDistanceTo(TransformComponent transform);
 private:
 #pragma endregion
 

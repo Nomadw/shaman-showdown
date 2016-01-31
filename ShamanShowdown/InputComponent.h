@@ -25,12 +25,13 @@ private:
 
 #pragma region Constructors/Destuctors
 public:
-	InputComponent(WPARAM up, WPARAM left, WPARAM down, WPARAM right);
+	InputComponent(WPARAM up, WPARAM left, WPARAM down, WPARAM right, float walkSpeed);
 	~InputComponent();
 #pragma endregion
 
 #pragma region Variables
 public:
+	float speed;
 private:
 #pragma endregion
 

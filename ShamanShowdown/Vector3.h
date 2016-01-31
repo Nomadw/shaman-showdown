@@ -36,7 +36,8 @@ private:
 
 #pragma region Functions
 public:
-
+	float Magnitude(Vector3 other);
+	static float Magnitude(Vector3 first, Vector3 second);
 private:
 #pragma endregion
 

@@ -12,12 +12,13 @@ void downKey(TransformComponent* transform);
 void upKey(TransformComponent* transform);
 #pragma endregion
 
-InputComponent::InputComponent(WPARAM up, WPARAM left, WPARAM down, WPARAM right)
+InputComponent::InputComponent(WPARAM up, WPARAM left, WPARAM down, WPARAM right, float walkSpeed)
 {
 	chars[KEYS_UP] = up;
 	chars[KEYS_DOWN] = down;
 	chars[KEYS_LEFT] = left;
 	chars[KEYS_RIGHT] = right;
+	speed = walkSpeed;
 }
 
 
@@ -35,28 +36,39 @@ void InputComponent::update(GameState * state, float deltaTime, Controls* contro
 	{
 		moveY += -1;
 		render->texture = 16;
+		transform->Rotation().getY() = -1;
 	}
 	if (controls->isKeyPressed(chars[KEYS_LEFT]))
 	{
 		moveX += -1;
 		render->texture = 18;
+		transform->Rotation().getX() = -1;
 	}
 	if (controls->isKeyPressed(chars[KEYS_DOWN]))
 	{
 		moveY += 1;
 		render->texture = 17;
+		transform->Rotation().getY() = 1;
 	}
 	if (controls->isKeyPressed(chars[KEYS_RIGHT]))
 	{
 		moveX += 1;
 		render->texture = 19;
+		transform->Rotation().getX() = 1;
 	}
-
+	if (moveX == 0 && moveY != 0) 
+	{
+		transform->Rotation().getX() = 0;
+	}
+	if (moveY == 0 && moveX != 0)
+	{
+		transform->Rotation().getY() = 0;
+	}
 	float hypotenuse = sqrt(pow(moveX, 2) + pow(moveY, 2));
 	if (hypotenuse > 0)
 	{
-		moveX = (moveX / hypotenuse) * deltaTime;
-		moveY = (moveY / hypotenuse) * deltaTime;
+		moveX = (moveX / hypotenuse) * deltaTime * speed;
+		moveY = (moveY / hypotenuse) * deltaTime * speed;
 
 		Map* map = static_cast<Map*>(state->FindComponentInObject<Map>());
 		if (map != NULL)

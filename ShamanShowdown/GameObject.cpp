@@ -5,6 +5,7 @@ GameObject::GameObject()
 {
 	transform = new TransformComponent();
 	attachComponent(transform);
+	requestedRemoval = false;
 }
 
 
@@ -32,4 +33,10 @@ void GameObject::render(Renderer * renderer)
 	{
 		gameComponents[i]->render(renderer);
 	}
+}
+
+float GameObject::GetDistanceTo(TransformComponent transform)
+{
+	//return this->transform->
+	return NULL;
 }

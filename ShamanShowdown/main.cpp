@@ -9,14 +9,17 @@
 
 #include "Map.h"
 
+#include "UserInterface.h"
+
 #include <time.h>
 
 #include "GameState.h"
 #include "Vector3.h"
 
 // some basic numbers to hold the position and size of the window
-#define WIDTH		1920
-#define HEIGHT		1080
+#define WIDTH		2048
+#define HEIGHT		1152
+
 #define TOPLEFTX	0
 #define TOPLEFTY	0
 
@@ -113,9 +116,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 
 	GameObject* theMap = new GameObject();
 
+	UserInterface* ui = new UserInterface();
+
 	Map * map = new Map(state);
 	map->loadMap("map1.gmp");
 	theMap->attachComponent(map);
+	theMap->attachComponent(ui);
 
 	state->addGameObject(theMap);
 
@@ -140,7 +146,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	renderer->loadTexture("Textures/shaman red_left_1.tga", "rl1");
 	renderer->loadTexture("Textures/shaman red_right_1.tga", "rr1");
 
-	renderer->loadTexture("Textures/hud.tga", "hud");
+	renderer->loadTexture("Textures/HUDYOURMUDDA.tga", "hud");
+	renderer->loadTexture("Textures/healtjficlnutdshit.tga", "hud");
 
 	float deltaTime = 0;
 
@@ -193,8 +200,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 
 		clock_t endFrameTime = clock();
 		deltaTime = (float)(endFrameTime - startFrameTime) / (float)CLOCKS_PER_SEC;
-
 	}
+
+	//ChangeDisplaySettings(&oldMode, DM_COLOR);
 	wglMakeCurrent(NULL, NULL);
 
 	// delete the rendering context, we no longer need it.
