@@ -1,5 +1,9 @@
 #include "GameState.h"
 #include "TransformComponent.h"
+#include "UserInterfaceComponent.h"
+#include "MapComponent.h"
+#include "ItemSpawner.h"
+#include "ItemComponent.h"
 
 GameState::GameState()
 {
@@ -24,6 +28,27 @@ void GameState::Initialize()
 	teams.emplace_back();
 	gameObjects.push_back(teams[1].BuildShaman(1));
 	gameObjects.push_back(teams[1].BuildWarrior(1));
+
+	GameObject* theMap = new GameObject();
+	UserInterfaceComponent* ui = new UserInterfaceComponent();
+	MapComponent * map = new MapComponent(this);
+	map->loadMap("map1.gmp");
+	theMap->attachComponent(map);
+	theMap->attachComponent(new ItemSpawner(10.0f));
+	theMap->attachComponent(ui);
+	addGameObject(theMap);
+
+	GameObject * startItem = new GameObject();
+	startItem->attachComponent(new ItemComponent(25, missle));
+	startItem->transform->Translation().setX(15);
+	startItem->transform->Translation().setY(5);
+	addGameObject(startItem);
+
+	startItem = new GameObject();
+	startItem->attachComponent(new ItemComponent(25, missle));
+	startItem->transform->Translation().setX(15);
+	startItem->transform->Translation().setY(12);
+	addGameObject(startItem);
 }
 
 

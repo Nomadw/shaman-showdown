@@ -117,18 +117,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	renderer = new Renderer();
 	state = new GameState();
 
-	GameObject* theMap = new GameObject();
-
-	UserInterfaceComponent* ui = new UserInterfaceComponent();
-
-	MapComponent * map = new MapComponent(state);
-	map->loadMap("map1.gmp");
-	theMap->attachComponent(map);
-	theMap->attachComponent(new ItemSpawner(10.0f));
-	theMap->attachComponent(ui);
-
-	state->addGameObject(theMap);
-
 	renderer->loadTexture("Textures/wall.tga", "wall");
 	renderer->loadTexture("Textures/grass-flowers.tga", "grass");
 	renderer->loadTexture("Textures/tree.tga", "tree");
@@ -171,19 +159,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	renderer->loadTexture("Textures/warrior blue_left_1.tga", "wrl1");
 	renderer->loadTexture("Textures/warrior blue_right_1.tga", "wrr1");
 
+	renderer->loadTexture("Textures/titlescreen.tga", "title");
+
+	renderer->loadTexture("Textures/gameoverred.tga", "gameoverred");
+	renderer->loadTexture("Textures/gameoverblue.tga", "gameoverblue");
+
 	float deltaTime = 0;
-
-	GameObject * startItem = new GameObject();
-	startItem->attachComponent(new ItemComponent(25, missle));
-	startItem->transform->Translation().setX(15);
-	startItem->transform->Translation().setY(5);
-	state->addGameObject(startItem);
-
-	startItem = new GameObject();
-	startItem->attachComponent(new ItemComponent(25, missle));
-	startItem->transform->Translation().setX(15);
-	startItem->transform->Translation().setY(12);
-	state->addGameObject(startItem);
+	bool title = true;
 
 	while (!needToQuit)
 	{
@@ -213,6 +195,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 		{
 			needToQuit = true;
 		}
+		if (controls.isKeyPressed(VK_BACK))
+		{
+			delete state;
+			state = new GameState();
+		}
 		state->update(deltaTime, &controls);
 		
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);		// clear the screen and the depth buffer
@@ -228,10 +215,29 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 		state->render(renderer);
 		renderer->currentPass = RENDER_PASS_UI;
 		state->render(renderer);
+		if (state->getTeam(1).GetShaman() == NULL) 
+		{
+			renderer->draw(renderer->getTexture("gameoverred"), WIDTH / 2, HEIGHT / 2, WIDTH, HEIGHT);
+		}
+		if (state->getTeam(0).GetShaman() == NULL)
+		{
+			renderer->draw(renderer->getTexture("gameoverblue"), WIDTH / 2, HEIGHT / 2, WIDTH, HEIGHT);
+		}
+		if (title) 
+		{
+			renderer->draw(renderer->getTexture("title"), WIDTH / 2, HEIGHT / 2, WIDTH, HEIGHT);
+		}
 		SwapBuffers(myDeviceContext);									// put our triangles on the screen!
-
+		if (controls.isKeyPressed(VK_RETURN)) 
+		{
+			title = false;
+		}
 		clock_t endFrameTime = clock();
 		deltaTime = (float)(endFrameTime - startFrameTime) / (float)CLOCKS_PER_SEC;
+		if (title) 
+		{
+			deltaTime = 0;
+		}
 	}
 
 	//ChangeDisplaySettings(&oldMode, DM_COLOR);
