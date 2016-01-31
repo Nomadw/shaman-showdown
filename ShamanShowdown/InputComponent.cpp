@@ -7,6 +7,7 @@
 #include "MagicProjectileComponent.h"
 #include "MeleeComponent.h"
 #include "TeamMemberComponent.h"
+#include <Windows.h>
 
 #pragma region private prototypes
 void rightKey(TransformComponent* transform);
@@ -22,8 +23,9 @@ InputComponent::InputComponent(WPARAM up, WPARAM left, WPARAM down, WPARAM right
 	chars[KEYS_LEFT] = left;
 	chars[KEYS_RIGHT] = right;
 	speed = walkSpeed;
-}
 
+	tickDuration = 100;
+}
 
 InputComponent::~InputComponent()
 {
@@ -31,6 +33,7 @@ InputComponent::~InputComponent()
 
 void InputComponent::update(GameState * state, float deltaTime, Controls* controls, GameObject* object)
 {
+	time += deltaTime;
 	TransformComponent* transform = object->transform;
 	RenderComponent * render = (RenderComponent *)object->getComponent<RenderComponent>();
 	float moveX = 0, moveY = 0;
@@ -41,41 +44,43 @@ void InputComponent::update(GameState * state, float deltaTime, Controls* contro
 	int offset = 0;
 	if (object->getComponent<MeleeComponent>() != NULL && ((TeamMemberComponent*)object->getComponent<TeamMemberComponent>())->team == 0) 
 	{
-		offset = 10;
+		offset = 8;
 	}
 	if (((TeamMemberComponent*)object->getComponent<TeamMemberComponent>())->team == 1)
 	{
-		offset = 14;
+		offset = 16;
 		if(object->getComponent<MeleeComponent>() != NULL) 
 		{
-			offset += 4;
+			offset += 8;
 		}
 	}
+
+
 	if (controls->isKeyPressed(chars[KEYS_UP]))
 	{
 		isMovingUp = true;
 		moveY = -1;
-		render->texture = 16 + offset;
+		render->texture = 22 + offset +(((int)(time * 2.0f)) % 2);
 		transform->Rotation().getY() = -1;
 	}
 	if (controls->isKeyPressed(chars[KEYS_LEFT]))
 	{
 		isMovingLeft = true;
 		moveX = -1;
-		render->texture = 18 + offset;
+		render->texture = 26 + offset;
 		transform->Rotation().getX() = -1;
 	}
 	if (controls->isKeyPressed(chars[KEYS_DOWN]))
 	{
 		moveY = 1;
-		render->texture = 17 + offset;
+		render->texture = 24 + offset +(((int)(time * 2.0f)) % 2);
 		transform->Rotation().getY() = 1;
 	}
 	if (controls->isKeyPressed(chars[KEYS_RIGHT]))
 	{
 		isMovingRight = true;
 		moveX = 1;
-		render->texture = 19 + offset;
+		render->texture = 28 + offset; //was 23
 		transform->Rotation().getX() = 1;
 	}
 	if (moveX == 0 && moveY != 0) 

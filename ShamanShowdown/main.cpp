@@ -145,10 +145,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 	renderer->loadTexture("Textures/bridge-vert.tga", "bridge-vert");
 	renderer->loadTexture("Textures/bridge-horz.tga", "bridge-horz");
 	renderer->loadTexture("Textures/tree-rocks.tga", "tree-rocks");
-	renderer->loadTexture("Textures/shaman red_back_1.tga", "rb1");
-	renderer->loadTexture("Textures/shaman red_front_1.tga", "rf1");
-	renderer->loadTexture("Textures/shaman red_left_1.tga", "rl1");
-	renderer->loadTexture("Textures/shaman red_right_1.tga", "rr1");
+	//from here
+
 
 	renderer->loadTexture("Textures/HUDYOURMUDDA.tga", "hud");
 	renderer->loadTexture("Textures/healtjficlnutdshit.tga", "heathbar");
@@ -158,29 +156,53 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine
 
 	renderer->loadTexture("Textures/Blue Powerup.tga", "redhealth");
 
+
+	renderer->loadTexture("Textures/shaman red_back_1.tga", "rb1");
+	renderer->loadTexture("Textures/shaman red_back_2.tga", "rb2");
+	renderer->loadTexture("Textures/shaman red_front_1.tga", "rf1");
+	renderer->loadTexture("Textures/shaman red_front_2.tga", "rf1");
+	renderer->loadTexture("Textures/shaman red_left_1.tga", "rl1");
+	renderer->loadTexture("Textures/shaman red_right_1.tga", "rr1");
+	renderer->loadTexture("Textures/shaman red_left_1.tga", "rl1");
+	renderer->loadTexture("Textures/shaman red_right_1.tga", "rr1");
+
 	renderer->loadTexture("Textures/warrior red_back_1.tga", "wrb1");
+	renderer->loadTexture("Textures/warrior red_back_2.tga", "wrb1");
+	renderer->loadTexture("Textures/warrior red_front_1.tga", "wrf1");
 	renderer->loadTexture("Textures/warrior red_front_2.tga", "wrf1");
 	renderer->loadTexture("Textures/warrior red_left_1.tga", "wrl1");
+	renderer->loadTexture("Textures/warrior red_left_1.tga", "wrl1");
 	renderer->loadTexture("Textures/warrior red_right_1.tga", "wrr1");
+	renderer->loadTexture("Textures/warrior red_right_1.tga", "wrr1");
+
 	renderer->loadTexture("Textures/shaman blue_back_1.tga", "rb1");
+	renderer->loadTexture("Textures/shaman blue_back_2.tga", "rb1");
 	renderer->loadTexture("Textures/shaman blue_front_1.tga", "rf1");
+	renderer->loadTexture("Textures/shaman blue_front_2.tga", "rf1");
 	renderer->loadTexture("Textures/shaman blue_left_1.tga", "rl1");
 	renderer->loadTexture("Textures/shaman blue_right_1.tga", "rr1");
+	renderer->loadTexture("Textures/shaman blue_left_1.tga", "rl1");
+	renderer->loadTexture("Textures/shaman blue_right_1.tga", "rr1");
+
 	renderer->loadTexture("Textures/warrior blue_back_1.tga", "wrb1");
+	renderer->loadTexture("Textures/warrior blue_back_2.tga", "wrb1");
+	renderer->loadTexture("Textures/warrior blue_front_1.tga", "wrf1");
 	renderer->loadTexture("Textures/warrior blue_front_2.tga", "wrf1");
 	renderer->loadTexture("Textures/warrior blue_left_1.tga", "wrl1");
+	renderer->loadTexture("Textures/warrior blue_left_1.tga", "wrl1");
+	renderer->loadTexture("Textures/warrior blue_right_1.tga", "wrr1");
 	renderer->loadTexture("Textures/warrior blue_right_1.tga", "wrr1");
 
 	float deltaTime = 0;
 
 	GameObject * startItem = new GameObject();
-	startItem->attachComponent(new ItemComponent(25, MISSLE));
+	startItem->attachComponent(new ItemComponent(21, MISSLE));
 	startItem->transform->Translation().setX(15);
 	startItem->transform->Translation().setY(5);
 	state->addGameObject(startItem);
 
 	startItem = new GameObject();
-	startItem->attachComponent(new ItemComponent(25, MISSLE));
+	startItem->attachComponent(new ItemComponent(21, MISSLE));
 	startItem->transform->Translation().setX(15);
 	startItem->transform->Translation().setY(12);
 	state->addGameObject(startItem);

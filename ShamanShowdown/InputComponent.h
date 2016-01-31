@@ -21,6 +21,12 @@ class InputComponent : public GameComponent
 public:
 private:
 	WPARAM chars[4];
+
+	int startTick;
+	int tickDuration;
+
+	int tempOffset = 1;
+	float time = 0;
 #pragma endregion
 
 #pragma region Constructors/Destuctors
