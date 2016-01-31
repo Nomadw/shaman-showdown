@@ -3,7 +3,7 @@
 
 #include <vector>
 using namespace std;
-class UserInterface :
+class UserInterfaceComponent :
 	public GameComponent
 {
 public:

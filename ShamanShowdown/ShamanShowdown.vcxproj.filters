@@ -61,6 +61,7 @@
     <ClInclude Include="ItemSpawner.h" />
     <ClInclude Include="UserInterfaceComponent.h" />
     <ClInclude Include="MapComponent.h" />
+    <ClInclude Include="Map.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="test.tga" />
