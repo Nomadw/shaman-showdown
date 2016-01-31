@@ -5,6 +5,7 @@
 #include "Controls.h"
 #include "TransformComponent.h"
 #include "MagicProjectileComponent.h"
+#include "EffectsComponent.h"
 
 InventoryComponent::InventoryComponent()
 {
@@ -39,10 +40,14 @@ void InventoryComponent::useItem(GameState* state, int team, GameObject* object)
 	{
 		Items nextItem = inventory.front();
 
+
+		GameObject * missleObject = new GameObject();
+		EffectsComponent* myEffects = (EffectsComponent *)(object->getComponent<EffectsComponent>());
+		EffectsComponent* enemyEffects = (EffectsComponent *)(state->getTeam(1 - team).GetShaman()->getComponent<EffectsComponent>());
+		
 		switch (nextItem)
 		{
 		case MISSLE:
-			GameObject * missleObject = new GameObject();
 			missleObject->transform->Translation() = object->transform->Translation();
 			if (state->getTeam(1 - team).GetWarrior() != NULL)
 			{
@@ -53,6 +58,12 @@ void InventoryComponent::useItem(GameState* state, int team, GameObject* object)
 				missleObject->attachComponent(new MagicProjectileComponent(0, 25, state->getTeam(1 - team).GetShaman()->transform, missleObject->transform, team));
 			}
 			state->addGameObject(missleObject);
+			break;
+		case SUPER_SPEED:
+			myEffects->addEffect(EFFECTS_SUPERSPEED);
+			break;
+		case SLOW_DOWN:
+			enemyEffects->addEffect(EFFECTS_SLOW);
 			break;
 		}
 

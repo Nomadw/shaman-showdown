@@ -8,6 +8,7 @@
 #include "MeleeComponent.h"
 #include "TeamMemberComponent.h"
 #include "HealthComponent.h"
+#include "EffectsComponent.h"
 #include "InventoryComponent.h"
 
 WPARAM moveChars[16] = { VK_UP, VK_LEFT, VK_DOWN, VK_RIGHT,'T', 'F', 'G', 'H',  'W', 'A', 'S', 'D', 'I', 'J', 'K', 'L', };
@@ -51,6 +52,7 @@ GameObject * Team::BuildShaman(int teamNumber)
 	characters[0]->attachComponent(new RenderComponent(teamNumber == 0 ? 18 : 19));
 	characters[0]->transform->Translation() = Vector3(teamNumber == 0 ? 18 : 2, 9);
 	characters[0]->attachComponent(new InventoryComponent());
+	characters[0]->attachComponent(new EffectsComponent());
 
 	return object;
 }

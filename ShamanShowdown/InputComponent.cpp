@@ -7,6 +7,7 @@
 #include "MagicProjectileComponent.h"
 #include "MeleeComponent.h"
 #include "TeamMemberComponent.h"
+#include "EffectsComponent.h"
 
 #pragma region private prototypes
 void rightKey(TransformComponent* transform);
@@ -51,6 +52,24 @@ void InputComponent::update(GameState * state, float deltaTime, Controls* contro
 			offset += 4;
 		}
 	}
+	EffectsComponent* effects = (EffectsComponent *)(object->getComponent<EffectsComponent>());
+
+	float speedMulti = 1;
+
+	if (effects != NULL)
+	{
+		// is shaman
+		if (effects->hasEffect(EFFECTS_SUPERSPEED))
+		{
+			speedMulti = 10;
+		}
+		
+		if (effects->hasEffect(EFFECTS_SLOW))
+		{
+			speedMulti *= 0.25f;
+		}
+	}
+
 	if (controls->isKeyPressed(chars[KEYS_UP]))
 	{
 		isMovingUp = true;
@@ -89,8 +108,8 @@ void InputComponent::update(GameState * state, float deltaTime, Controls* contro
 	float hypotenuse = sqrt(pow(moveX, 2) + pow(moveY, 2));
 	if (hypotenuse > 0)
 	{
-		moveX = (moveX / hypotenuse) * deltaTime * speed;
-		moveY = (moveY / hypotenuse) * deltaTime * speed;
+		moveX = (moveX / hypotenuse) * deltaTime * speed * speedMulti;
+		moveY = (moveY / hypotenuse) * deltaTime * speed * speedMulti;
 
 		MapComponent* map = static_cast<MapComponent*>(state->FindComponentInObject<MapComponent>());
 		if (map != NULL)

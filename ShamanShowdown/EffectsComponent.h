@@ -1,5 +1,6 @@
 #pragma once
 #include "GameComponent.h"
+#include <map>
 
 enum EFFECTS
 {
@@ -11,10 +12,6 @@ enum EFFECTS
 };
 
 
-inline EFFECTS operator|(EFFECTS a, EFFECTS b)
-{
-	return static_cast<EFFECTS>(static_cast<int>(a) | static_cast<int>(b));
-}
 
 inline EFFECTS operator|=(EFFECTS a, EFFECTS b)
 {
@@ -31,7 +28,7 @@ inline EFFECTS operator&=(EFFECTS a, EFFECTS b)
 	return static_cast<EFFECTS>(static_cast<int>(a) & static_cast<int>(b));
 }
 
-class EffectsComponent : GameComponent
+class EffectsComponent : public GameComponent
 {
 public:
 	EffectsComponent();
@@ -47,5 +44,10 @@ public:
 
 private:
 	EFFECTS currentEffects;
+
+	std::map<EFFECTS, float> effectStartTimes;
+	std::map<EFFECTS, float> effectTimeActive;
+
+	const int EFFECT_TOTAL_COUNT = 5;
 };
 
