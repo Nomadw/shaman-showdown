@@ -6,6 +6,7 @@
 #include "TransformComponent.h"
 #include "Team.h"
 #include "MissileUse.h"
+#include "InventoryComponent.h"
 
 ItemComponent::ItemComponent(int textureID, Items in)
 {
@@ -25,24 +26,19 @@ void ItemComponent::update(GameState* state, float deltaTime, Controls* controls
 	y = object->transform->Translation().getY();
 	size = 32.0f;
 
-	for (int i = 0; i < 2; i++) {
+	for (int i = 0; i < 2; i++) 
+	{
 		Team *team = &state->getTeam(i);
 		if (team->GetWarrior() != NULL)
 		{
-			if (object->transform->Translation().Magnitude(team->GetWarrior()->transform->Translation()) < 0.25f) {
-				if (team->GetShaman() != NULL) {
+			if (object->transform->Translation().Magnitude(team->GetWarrior()->transform->Translation()) < 0.25f)
+			{
+				if (team->GetShaman() != NULL)
+				{
 					object->requestedRemoval = true;
-					switch (item)
-					{
-					case missle:
-						team->GetShaman()->attachComponent(new MissileUse());
-						break;
-					default:
-						break;
-					}
+					((InventoryComponent*)team->GetShaman()->getComponent<InventoryComponent>())->giveItem(item);
 					return;
 				}
-				//loat drippingboycunts = 6;
 			}
 		}
 	}
