@@ -34,7 +34,7 @@ void GameState::Initialize()
 	MapComponent * map = new MapComponent(this);
 	map->loadMap("map1.gmp");
 	theMap->attachComponent(map);
-	theMap->attachComponent(new ItemSpawner(10.0f));
+	theMap->attachComponent(new ItemSpawner(5.0f));
 	theMap->attachComponent(ui);
 	addGameObject(theMap);
 

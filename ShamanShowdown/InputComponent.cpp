@@ -64,7 +64,7 @@ void InputComponent::update(GameState * state, float deltaTime, Controls* contro
 		// is shaman
 		if (effects->hasEffect(EFFECTS_SUPERSPEED))
 		{
-			speedMulti = 10;
+			speedMulti = 5;
 		}
 		
 		if (effects->hasEffect(EFFECTS_SLOW))
