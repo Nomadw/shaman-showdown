@@ -19,6 +19,7 @@
 // some basic numbers to hold the position and size of the window
 #define WIDTH		2048
 #define HEIGHT		1152
+
 #define TOPLEFTX	0
 #define TOPLEFTY	0
 
